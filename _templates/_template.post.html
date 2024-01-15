@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{title}}</title>
+	<meta name="description" content="This is a post on My Blog about touchpoints and circling wagons.">
+	<!-- <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Eleventy Base Blog v8"> -->
+	<!-- <link rel="alternate" href="/feed/feed.json" type="application/json" title="Eleventy Base Blog v8"> -->
+	<link rel="stylesheet" href="/assets/code-blocks.css">
+	<link rel="stylesheet" href="/assets/main.css">
+</head>
+
+<body>
+	<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+	<header>
+		<a href="/" class="home-link">iamsitting</a>
+		<nav>
+			<h2 class="visually-hidden">Top level navigation menu</h2>
+			<ul class="nav">
+				<li class="nav-item"><a href="/">Home</a></li>
+				<li class="nav-item"><a href="/blog/">Archive</a></li>
+				<li class="nav-item"><a href="/about/">About Me</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main id="skip">
+
+		<h1>{{Title}}</h1>
+
+		<ul class="post-metadata">
+			<li><time datetime="2018-09-30">{{Post-Date}}</time></li>
+		</ul>
+
+		<p>{{Content}}</p>
+		<h2 id="section-header" tabindex="-1">{{Section Header}} <a class="header-anchor" href="#section-header">#</a></h2>
+		<p>{{More content}}</p>
+
+		<ul class="links-nextprev">
+			<li>Previous: <a href="/">{{[revious}}</a></li>
+			<li>Next: <a href="/">{{next}}</a></li>
+		</ul>
+
+	</main>
+
+	<footer></footer>
+</body>
+
+</html>

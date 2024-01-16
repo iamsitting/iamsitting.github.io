@@ -35,8 +35,44 @@
 			<li><time datetime="20204-01-15">Jan 15, 2024</time></li>
 		</ul>
 
-		<p>I am rebuilding my website. I have struggled back and forth on what kind of website I want to build and how I want to build. In other words, the "what" and the "how". In terms of "what", it's primarily for content which will double as my portfolio. In terms of "how", I'm going back to HTML and CSS because I don't have time to manage dependencies. </p>
-		
+		<p>I am rebuilding my website. I have struggled back and forth on what kind of website I want to build and how
+			I am going to maintain it. In other words, the "what" and the "how".</p>
+		<h2>Let me begin with the "what"</h2>
+		<p>This is a simple website to showcase some of my previous work and some of the cool things I'm working on. I
+			call it a blogfolio.</p>
+		<h2>Now, for the "how"</h2>
+		<p>I have tried a bunch of things. SPAs, SSGs, CMSs (headless and headful(?)), next, nuxt, jekyll, and on and
+			on.
+			Why? Well, I am primarily a backend developer. And like a true backend developer, why would I bother with
+			HTML
+			and CSS?
+
+		</p>
+		<p>So I looked into CMS solutions (Wordpress). It became evident it's too much to deal with for a simple
+			website. They're
+			often too expensive especially if you want your own domain name. There is the option of building my own (I
+			tried with Umbraco, Orchard, and Django), but
+			where am I going to host a database?</p>
+		<p>Then I looked at SPAs and headless CMS solutions. This actually worked for a while, but it was too many
+			moving parts,
+			API keys, logins etc. I was using templates from UIDeck and deploying frmo GitHub to Render (at one point
+			Vercel) and using Cosmicjs for my headless CMS. It was all free. </p>
+		<p>Then I said, forget forms, comments, tags, etc. I just want content.</p>
+		<p>So I looked at SSGs, next.js, nuxt.js, etc. These were great because then I could manage my content with just
+			markdown and a folder structure. But once I started reading the docs on those frameworks, I knew right away
+			that
+			was not going to be maintainable. But the idea of managing content with markdown was very appealing.
+			Anything to avoid HTML, remember?</p>
+		<p>So I did try it out with Nuxt and jekyll, however, styling and laying out markdown was very difficult.
+			Evetually, I found myself following odd rules to get routes working, embedding YML in my markdown files, and
+			even writing HTML in my markdown files.
+		</p>
+		<p>What was suppose to be simple markdown files, ended up being routing, markdown, yml, html, react/vue hell.
+			Just for some content.</p>
+		<p>So after 6 years of experimenting, I've decided to go back and write a little HTML and rob someone's CSS
+			(kudos: eleventy).</p>
+		<p>So that's what this site is: HTML and CSS. Yup. Every page you visit is literally an HTML file.</p>
+		<p>No database. No markdown. No yml. No javascript (at least not now). Just HTML, CSS, and GitHub Pages.</p>
 		<ul class="links-nextprev">
 			<li>Previous: <a href="/">Home</a></li>
 		</ul>

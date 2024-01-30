@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publishing NuGet Packages with Azure Artifacts</title>
+    <meta name="description" content="This article outlines how to develop and publish NuGet packages.">
+    <link rel="stylesheet" href="/assets/code-blocks.css">
+    <link rel="stylesheet" href="/assets/main.css">
+</head>
+
+<body>
+    <a href="#skip" class="visually-hidden">Skip to main content</a>
+
+    <header>
+        <a href="/" class="home-link">iamsitting</a>
+        <nav>
+            <h2 class="visually-hidden">Top level navigation menu</h2>
+            <ul class="nav">
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/blog/">Archive</a></li>
+                <li class="nav-item"><a href="/about/">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="skip">
+
+        <h1>Publishing NuGet Packages with Azure Artifacts</h1>
+
+        <ul class="post-metadata">
+            <li><time datetime="2024-01-30">Jan 30, 2024</time></li>
+        </ul>
+
+        <p>This articles outlines how to develop and publish NuGet packages.</p>
+        <h2 id="nuget-packages" tabindex="-1">NuGet Packages <a class="header-anchor" href="#nuget-packages">#</a>
+        </h2>
+        <p>What are the NuGet packages? First, let's talk about NuGet is package manager for .NET (and .NET Framework).
+            There are essentially three ways to share code in .NET:</p>
+        <ol>
+            <li>Share the code, that is, the source code. This usually means copying and pasting the code into our
+                application.</li>
+            <li>Share the binary. This often easier to maintain than sharing the code, however, it is generally bad
+                practice to keep binaries in source control, especially in Git. Additionally, if it's not well
+                documented (and it often isn't), it's hard to know how to use it.</li>
+            <li>NuGet packages. This often is a reference in a project or configuration file where we specify the name
+                of the package and the version we want. When the project is built, it automatically checks the name and
+                version against the public NuGet repository and downloads the binaries. Threfore, we don't need to keep
+                binaries in our source control, and we can clearly document what are our dependencies</li>
+        </ol>
+        <p>At this point, we may wonder, why not share the code in the first place. More often than not, that is an
+            appropriate solution, especially when working on small teams and on small projects. However, there are cases
+            where we want the same behavior or functionality and instead of reinventing the wheel or copying code that
+            can easily become outdated, it's better to use a sharable package. Consider, how many times we would need to
+            write e-mail client in C#? Consider, which functionalities are so complicated, that it's easier to purchase
+            an already built solution. These are cases, where we want NuGet packages.</p>
+        <p><strong>WARNING:</strong> Not everything needs to be a NuGet package. If we <strong>know </strong> something
+            will be reused at least 3 times, let's make it a NuGet package from the get-go. If there is only a
+            <strong>potential</strong>
+            need, let's write it as a library project within an application. Once three or more applications need the
+            <strong>exact</strong> same functionality, we can create a NuGet package. NuGet packages themselves need a
+            level of
+            governance so there is a level of investment that goes into creating a NuGet packages specially as more
+            applications depend on them.
+        </p>
+        <p>In this article, we are going to cover how to do two things:
+        <ol>
+            <li>How to create a NuGet packages from a .NET project using the dotnet cli
+            </li>
+            <li>How to create NuGet repository with Azure Artifacts or feed to host our packages
+            </li>
+        </ol>
+        </p>
+        <h2 id="creating-nuget-packages" tabindex="-1">Creating NuGet Packages <a class="header-anchor"
+                href="#creating-nuget-packages">#</a>
+        </h2>
+        <p>First, let's begin with how to create a NuGet package.</p>
+        <h2 id="class-library-project" tabindex="-1">Class Library Project <a class="header-anchor"
+                href="#class-library-project">#</a>
+        </h2>
+        <p>It all begins with a library project. Library projects are .NET projects that produce binaries, but no
+            executables. These projects are meant to be used by other projects, not be executed.
+
+            For more information on how to create a class library project see here: <a
+                href="https://learn.microsoft.com/en-us/dotnet/core/tutorials/library-with-visual-studio?pivots=dotnet-8-0">Create
+                a .NET class library using
+                Visual Studio - .NET | Microsoft Learn</a>
+
+        </p>
+        <h2 id="configuring-nuget" tabindex="-1">Configuring NuGet in the project
+            <a class="header-anchor" href="#configuring-nuget">#</a>
+        </h2>
+        <p>Now, that we have created a library project, we can create a NuGet package from our library project.
+            Here's an example of the the .csproj file should look like:</p>
+        <pre class="language-xml" tabindex="0">
+            <code class="language-xml">
+<xmp>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Version>0.0.1</Version>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+    
+</Project></xmp>
+                </code></pre>
+        <p>For details on additional properties see here: <a
+                href="https://learn.microsoft.com/en-us/nuget/create-packages/creating-a-package-dotnet-cli#set-properties">Create
+                a NuGet package with the dotnet CLI | Microsoft Learn</a></p>
+        <h2 id="packing-nuget" tabindex="-1">Packing the NuGet Package <a class="header-anchor"
+                href="#packing-nuget">#</a>
+        </h2>
+        <p>Now, let's create the NuGet package
+            First, we build the project to ensure that our project is buildable.
+        </p>
+        <code>dotnet build</code>
+        <p>Next, we pack the package with:
+        </p>
+        <code>dotnet pack</code>
+        <p>When we navigate to ./bin/Release we are going to find a file with the .nupkg extension. That's our NuGet
+            package.</p>
+        <h2 id="creating-nuget-feed" tabindex="-1">Creating a Private NuGet Feed <a class="header-anchor"
+                href="#creating-nuget-feed">#</a>
+        </h2>
+        <p>Our next step is to publish our NuGet package. But where do we publish it. Well, we have a couple of options:
+
+        <ol>
+            <li>We can publish our NuGet package into the public NuGet repository: nuget.org. There's way to make our
+                NuGet package accessible via an API key and therefore making it private. However, if we have Azure
+                DevOps, then:
+            </li>
+            <li>We can create a private feed within Azure Artifacts where we can control the organizational scope of
+                access (who within our organization can use this NuGet package)</li>
+        </ol>
+        <p><strong>NOTE:</strong> At this point, we can see the value of having a private NuGet feed (or any dependency
+            management feed,
+            e.g. NPM). This enables an organization to share code securely in a scalable and maintainable manner.</p>
+        </p>
+        <h2 id="azure-artifacts" tabindex="-1">Azure Artifacts<a class="header-anchor" href="#azure-artifacts">#</a>
+        </h2>
+        <p>Azure Artifacts is a service within Azure DevOps to privately store dependencies. We are going to use Azure
+            Artifacts to create a NuGet feed. To do this, we can follow these steps: Get started with NuGet packages and
+            <a
+                href="https://learn.microsoft.com/en-us/azure/devops/artifacts/get-started-nuget?view=azure-devops&tabs=windows#create-a-feed">Azure
+                Artifacts - Azure Artifacts | Microsoft Learn</a>
+        </p>
+        <h2 id="publishing-nuget" tabindex="-1">Publishing the NuGet Package<a class="header-anchor"
+                href="#publishing-nuget">#</a>
+        </h2>
+        <p>Once our feed is created, we can now publish or <strong>push</strong> our NuGet package to our private
+            repository.
+            Here's a sample command on how to publish a NuGet package:
+        </p>
+        <code>dotnet nuget push ./bin/Release/{ProjectName}.{versionnumber}.nupkg --source https://dev.azure.com/org/project/_packaging/TestPrivateFeed/nuget/v3/index.json --api-key dummy --interactive</code>
+        <p>The main command is dotnet nuget push.</p>
+        <p>The location of the NuGet package <strong>./bin/Release/{ProjectName}.Lib.{versionnumber}.nupkg</strong></p>
+        <p>The location of the private repository: --source
+            https://dev.azure.com/org/project/_packaging/TestPrivateFeed/nuget/v3/index.json</p>
+        <p>The authentication parameters (because not everyone should be allowed to publish NuGet packages):
+            <strong>--api-key dummy --interactive</strong>
+        </p>
+        <p><strong>NOTE:</strong> The api key "dummy" is used because the user here has been authenticated using Windows
+            Authentication. To push from an unauthenticated user profile, an actual API key is needed.</p>
+        <p>Full instructions for other cases may be found here: <a
+                href="https://learn.microsoft.com/en-us/azure/devops/artifacts/nuget/dotnet-exe?view=azure-devops">Publish
+                and restore packages with dotnet CLI - Azure Artifacts | Microsoft Learn</a></p>
+        <h2 id="consuming-nuget" tabindex="-1">Consuming the NuGet Package<a class="header-anchor"
+                href="#consuming-nuget">#</a>
+        </h2>
+        <p>To use our NuGet package we must do two things: we need to tell our project what the NuGet package is and
+            where it is.</p>
+        <p>By default, all .NET projects look at the nuget.org feed, however, if a project wants to use our NuGet
+            package and other nuget.org packages, it will need the following nuget.config file:</p>
+        <code>
+<xmp>
+    <?xml version="1.0" encoding="utf-8"?>
+    <configuration>
+        <packageSources>
+            <clear/>
+            <add key="nuget.org" value="https://api.nuget.org/v3/index.json"/>
+            <add key="TestPrivateFeed" value="https://dev.azure.com/org/project/_packaging/TestPrivateFeed/nuget/v3/index.json" />
+        </packageSources>
+    </configuration>
+</xmp>            
+        </code>
+        <p>This configuration file tells our project where to look, but not what to look for. Now, we need to add our
+            NuGet package as a package reference in the application's <strong>.csproj</strong> file.</p>
+        <code>
+<xmp>
+    <ItemGroup>
+        <PackageReference Include="EnterpriseDirectory.Lib" Version="0.0.1"/>
+    </ItemGroup>
+</xmp>
+        </code>
+        <p>Now, we are able to build or restore our project successfully.</p>
+
+        <ul class="links-nextprev">
+            <li>Previous: <a href="/blog/2024/01/21-2nd-career-dev.html">2nd Career Dev</a></li>
+        </ul>
+
+    </main>
+
+    <footer></footer>
+</body>
+
+</html>

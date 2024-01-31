@@ -157,7 +157,9 @@
             repository.
             Here's a sample command on how to publish a NuGet package:
         </p>
-        <code>dotnet nuget push ./bin/Release/{ProjectName}.{versionnumber}.nupkg --source https://dev.azure.com/org/project/_packaging/TestPrivateFeed/nuget/v3/index.json --api-key dummy --interactive</code>
+        <pre class="language-bash" tabindex="0">
+<code>dotnet nuget push ./bin/Release/{ProjectName}.{versionnumber}.nupkg --source https://dev.azure.com/org/project/_packaging/TestPrivateFeed/nuget/v3/index.json --api-key dummy --interactive</code>
+</pre>
         <p>The main command is dotnet nuget push.</p>
         <p>The location of the NuGet package <strong>./bin/Release/{ProjectName}.Lib.{versionnumber}.nupkg</strong></p>
         <p>The location of the private repository: --source
@@ -177,27 +179,22 @@
             where it is.</p>
         <p>By default, all .NET projects look at the nuget.org feed, however, if a project wants to use our NuGet
             package and other nuget.org packages, it will need the following nuget.config file:</p>
-        <code>
-<xmp>
-    <?xml version="1.0" encoding="utf-8"?>
-    <configuration>
-        <packageSources>
-            <clear/>
-            <add key="nuget.org" value="https://api.nuget.org/v3/index.json"/>
-            <add key="TestPrivateFeed" value="https://dev.azure.com/org/project/_packaging/TestPrivateFeed/nuget/v3/index.json" />
-        </packageSources>
-    </configuration>
-</xmp>            
-        </code>
+        <pre class="language-bash" tabindex="0"><code><xmp><?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <packageSources>
+        <clear/>
+        <add key="nuget.org" value="https://api.nuget.org/v3/index.json"/>
+        <add key="TestPrivateFeed" value="https://dev.azure.com/org/project/_packaging/TestPrivateFeed/nuget/v3/index.json" />
+    </packageSources>
+</configuration>
+</xmp></code></pre>
+
         <p>This configuration file tells our project where to look, but not what to look for. Now, we need to add our
             NuGet package as a package reference in the application's <strong>.csproj</strong> file.</p>
-        <code>
-<xmp>
-    <ItemGroup>
-        <PackageReference Include="EnterpriseDirectory.Lib" Version="0.0.1"/>
-    </ItemGroup>
-</xmp>
-        </code>
+        <pre class="language-bash" tabindex="0"><code><xmp><ItemGroup>
+    <PackageReference Include="EnterpriseDirectory.Lib" Version="0.0.1"/>
+</ItemGroup>
+</xmp></code></pre>
         <p>Now, we are able to build or restore our project successfully.</p>
 
         <ul class="links-nextprev">

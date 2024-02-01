@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migrating to HTMX</title>
+    <meta name="description" content="How I bit the bullet on HTMX">
+    <!-- <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Eleventy Base Blog v8"> -->
+    <!-- <link rel="alternate" href="/feed/feed.json" type="application/json" title="Eleventy Base Blog v8"> -->
+    <link rel="stylesheet" href="/assets/code-blocks.css">
+    <link rel="stylesheet" href="/assets/main.css">
+</head>
+
+<body>
+    <a href="#skip" class="visually-hidden">Skip to main content</a>
+
+    <header>
+        <a href="/" class="home-link">iamsitting</a>
+        <nav>
+            <h2 class="visually-hidden">Top level navigation menu</h2>
+            <ul class="nav">
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/blog/">Archive</a></li>
+                <li class="nav-item"><a href="/about/">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="skip">
+
+        <h1>How I bit the bullet on migrating to HTMX</h1>
+
+        <ul class="post-metadata">
+            <li><time datetime="2024-01-31">Jan 31, 2024</time></li>
+        </ul>
+
+        <p>Let me tell you a story about poor design choice and how a small library saved a project.</p>
+        <h2 id="in-the-beginning" tabindex="-1">In the beginnning... <a class="header-anchor"
+                href="#in-the-beginning">#</a>
+        </h2>
+        <p>There was a project that had gotten old, the VM could not be upgraded, and the project needed to be rewritten
+            from scratch.</p>
+        <p>So I had a lot of spare time and joined in on this effort having already done a rewrite in Python. I had
+            gained a good amount of experience and had a solid understanding of basic web and http architecture along
+            with Linux and NGINX configuration. However, because of business requirements I had to work in the Microsoft
+            ecosystem. It was 2019 and luckily for me, .NET Core was just coming out.</p>
+        <p>I was excited to learn a new language and a new framework and to have full control in the design and
+            architecture of this application. In my previous Python rewrite, we were using Django, React, Bootstrap 3,
+            and jQuery. It was an utter mess. Django was great, but React was traumatizing. That said, the best part of
+            the application was the one page that used React.</p>
+        <h2 id="the-mistake" tabindex="-1">The Mistake <a class="header-anchor" href="#the-mistake">#</a>
+        </h2>
+        <p>In an attempt to not repeat this mistake, I decided I would limit the amount of MVC architecture and go full
+            blow JSON API + SPA architecture. I did this for a couple of reasons:</p>
+        <ol>
+            <li>Decoupling: I wanted everything to be decoupled. The database from the backend API. The backend API from
+                the SPA. My hope was that it would be easier to grow the team if we could find specialist: e.g. a
+                frontend developer vs a backend developer.</li>
+            <li>Testing: Because of the decoupled architecture, my thought was that it would also be easier to run
+                automated tests at each layer of the application.</li>
+            <li>Javascript: I figured more people know javascript than C#, so we're more likely to find javascript
+                developers than C# developers. I chose Vue as our framework since it seemed the easiest to learn.</li>
+        </ol>
+        <p>And here were my mistakes:</p>
+        <ol>
+            <li>Thinking an SPA is decoupled. It's not. An SPA may be an application level decoupling, but it's not
+                architecturally. The client must know about
+                the API. So the code is decoupled, but not the architecture. This meant that every time we changed our
+                models or an API, we had to test both the API and the client.</li>
+            <li>Thinking testing is easy. It's not. Writing test cases is hard, but maintaining them is even harder,
+                especially
+                as requirements change. Lastly, we didn't have the team to support a test infrastructure.</li>
+            <li>Thinking an SPA framework is just javascript. This is also not true. Knowing an SPA framework requires
+                and understanding of HTTP
+                architecture, state management, templating, routing, etc. The javascript (or typescript in our case) was
+                easy, but the framework was difficult to pick up. And this was the nail in the coffin. As the project
+                grew, the client application became unmanageable.</li>
+        </ol>
+        <h2 id="the-solution" tabindex="-1">The Solution <a class="header-anchor" href="#the-solution">#</a>
+        </h2>
+        <p>The solution was switching to a Hypermedia Driven Application. I had heard about HTMX and read several of the
+            essays. As I read through the essays, it felt like the author(s) were writing about my experience.</p>
+        <p>I tried out HTMX in a few small applications and saw the appeal. But if I was going to invest time and effort
+            into migrating my code base from a thick client to a think client, I wanted to know what I was getting
+            myself into.</p>
+        <p>So I read the book <a href="https://hypermedia.systems">Hypermedia Systems</a>, and was completely sold on
+            this idea. I started by migrating parts of my codebase. I had a Vertical Slice Architecture that allowed me
+            to migrate part of my application to HTMX while not interfering with the other features.</p>
+        <p>Some of the improvements I have seen are:</p>
+        <ul>
+            <li>Finding and fixing bugs is faster. I don't have to dig through the stack and through layers of state. I
+                know exactly where my was.</li>
+            <li>Error handling was simpler. My error handling and state were all in one location. No more backend AND
+                frontend validation.</li>
+            <li>Learnability. It was faster to onboard new developers to HTMX and C# then it was to onboard javascript
+                developers to an SPA.</li>
+            <li>Less code. Although, I haven't completely deprecated the Web API + SPA code, the amount of code I have
+                to look at is signifanctly less 35 to 40% less.</li>
+        </ul>
+
+        <!-- <pre class="language-js"
+			tabindex="0"><code class="language-js"><span class="token comment">// this is a command</span>
+			<span class="token keyword">function</span> <span class="token function">myCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token keyword">let</span> counter <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+				counter<span class="token operator">++</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			
+			<span class="token comment">// Test with a line break above this line.</span>
+			console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> -->
+
+        <ul class="links-nextprev">
+            <li>Previous: <a href="/blog/2024/01/30-nuget.html">Creating NuGet Packages</a></li>
+        </ul>
+
+    </main>
+
+    <footer></footer>
+</body>
+
+</html>

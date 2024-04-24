@@ -8,6 +8,8 @@
     <meta name="description" content="This article outlines how to develop and publish NuGet packages.">
     <link rel="stylesheet" href="/assets/code-blocks.css">
     <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark-dimmed.min.css">
 </head>
 
 <body>
@@ -93,9 +95,8 @@
         </h2>
         <p>Now, that we have created a library project, we can create a NuGet package from our library project.
             Here's an example of the the .csproj file should look like:</p>
-        <pre class="language-xml" tabindex="0">
-            <code class="language-xml">
-<xmp>
+        <pre>
+            <code class="language-xml"><xmp>
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
@@ -108,8 +109,7 @@
         <None Include="..\README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
     
-</Project></xmp>
-                </code></pre>
+</Project></xmp></code></pre>
         <p>For details on additional properties see here: <a
                 href="https://learn.microsoft.com/en-us/nuget/create-packages/creating-a-package-dotnet-cli#set-properties">Create
                 a NuGet package with the dotnet CLI | Microsoft Learn</a></p>
@@ -119,10 +119,10 @@
         <p>Now, let's create the NuGet package
             First, we build the project to ensure that our project is buildable.
         </p>
-        <code>dotnet build</code>
+        <pre><code class="language-bash">dotnet build</code></pre>
         <p>Next, we pack the package with:
         </p>
-        <code>dotnet pack</code>
+        <pre><code class="language-bash">dotnet pack</code></pre>
         <p>When we navigate to ./bin/Release we are going to find a file with the .nupkg extension. That's our NuGet
             package.</p>
         <h2 id="creating-nuget-feed" tabindex="-1">Creating a Private NuGet Feed <a class="header-anchor"
@@ -157,8 +157,8 @@
             repository.
             Here's a sample command on how to publish a NuGet package:
         </p>
-        <pre class="language-bash" tabindex="0">
-<code>dotnet nuget push ./bin/Release/{ProjectName}.{versionnumber}.nupkg --source https://dev.azure.com/org/project/_packaging/TestPrivateFeed/nuget/v3/index.json --api-key dummy --interactive</code>
+        <pre>
+<code class="language-bash">dotnet nuget push ./bin/Release/{ProjectName}.{versionnumber}.nupkg --source https://dev.azure.com/org/project/_packaging/TestPrivateFeed/nuget/v3/index.json --api-key dummy --interactive</code>
 </pre>
         <p>The main command is dotnet nuget push.</p>
         <p>The location of the NuGet package <strong>./bin/Release/{ProjectName}.Lib.{versionnumber}.nupkg</strong></p>
@@ -179,7 +179,7 @@
             where it is.</p>
         <p>By default, all .NET projects look at the nuget.org feed, however, if a project wants to use our NuGet
             package and other nuget.org packages, it will need the following nuget.config file:</p>
-        <pre class="language-bash" tabindex="0"><code><xmp><?xml version="1.0" encoding="utf-8"?>
+        <pre><code class="language-xml"><xmp><?xml version="1.0" encoding="utf-8"?>
 <configuration>
     <packageSources>
         <clear/>
@@ -191,7 +191,7 @@
 
         <p>This configuration file tells our project where to look, but not what to look for. Now, we need to add our
             NuGet package as a package reference in the application's <strong>.csproj</strong> file.</p>
-        <pre class="language-bash" tabindex="0"><code><xmp><ItemGroup>
+        <pre><code class="language-xml"><xmp><ItemGroup>
     <PackageReference Include="EnterpriseDirectory.Lib" Version="0.0.1"/>
 </ItemGroup>
 </xmp></code></pre>
@@ -205,6 +205,12 @@
     </main>
 
     <footer></footer>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/csharp.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/xml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 
 </html>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>.NET On-Demand Backups</title>
+	<meta name="description" content="This is a post on how to create on-demand backups and restores in ASP.NET Core using the dotnet CLI.">
+	<!-- <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Eleventy Base Blog v8"> -->
+	<!-- <link rel="alternate" href="/feed/feed.json" type="application/json" title="Eleventy Base Blog v8"> -->
+	<link rel="stylesheet" href="/assets/code-blocks.css">
+	<link rel="stylesheet" href="/assets/main.css">
+	<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark-dimmed.min.css">
+</head>
+
+<body>
+	<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+	<header>
+		<a href="/" class="home-link">iamsitting</a>
+		<nav>
+			<h2 class="visually-hidden">Top level navigation menu</h2>
+			<ul class="nav">
+				<li class="nav-item"><a href="/">Home</a></li>
+				<li class="nav-item"><a href="/blog/">Archive</a></li>
+				<li class="nav-item"><a href="/about/">About Me</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main id="skip">
+
+		<h1>.NET On-Demand Backups</h1>
+
+		<ul class="post-metadata">
+			<li><time datetime="2024-04-23">April 24, 2024</time></li>
+		</ul>
+
+		<p>I had the joy of starting my web development career with Django. One of the most powerful features within
+			Django is the built-in ORM. Like most ORMs it's very good at abstracting out the SQL API and able to version
+			a database with migrations.</p>
+		<p> What made Django even more special was the <a
+				href="https://docs.djangoproject.com/en/5.0/ref/django-admin/">Django Admin</a>. The Admin CLI was a
+			place where developers
+			could run administrative tasks using a Python interpreter instance. The instance automatically imported
+			Django tools and of course the ORM. This combination allowed developer to do data dumps which was very
+			convenient for local development.</p>
+		<p>After several years of working on .NET Core and EF Core projects, I wanted a similar tool. This especially
+			became more important as I was in an organization were there were dedicated DBAs for anything database
+			related.</p>
+		<h2 id="on-demand-backup" tabindex="-1">On-Demand Backups <a class="header-anchor"
+				href="#on-demand-backups">#</a>
+		</h2>
+		<p>The first thing we need to tackle is how do we create database backups. Well, that's going to vary from DBMS
+			to DBMS. For this article, we'll look at MSSQL, but it doesn't really matter.</p>
+		<p>In MSSQL, this is how we would create a backup:</p>
+		<pre>
+			<code class="language-sql">BACKUP DATABASE dbname TO DISK = '/path/to/backup.bak' WITH FORMAT</code>
+		</pre>
+		<p>Now the trick is to wrap that around a SQL Client. Fortunately, there are several and EF Core comes with one.
+		</p>
+		<pre><code class="language-csharp"> // DbUtility.cs
+public static async Task BackupDatabaseAsync(string backupLocation, string connectionString, string dbname)
+{
+	var filename = $"{dbname}-{DateTime.Today.ToString("d").Replace("/", "-")}.bak";
+	var fullFilePath = Path.Combine(backupLocation, filename);
+
+	using var connection = new SqlConnection(connectionString);
+	await connection.OpenAsync();
+
+	var backupCommandText = $"BACKUP DATABASE [{dbname}] TO DISK = '{fullFilePath}' WITH FORMAT;";
+
+	using var command = new SqlCommand(backupCommandText, connection);
+	await command.ExecuteNonQueryAsync();
+	Console.WriteLine($"backup created at: {fullFilePath}");
+}
+		</code></pre>
+
+		<h2 id="on-demand-restore" tabindex="-1">On-Demand Restore <a class="header-anchor"
+				href="#on-demand-restore">#</a>
+		</h2>
+
+		<p>Now, that we our back up code. We can implement something similar to restore from a backup.</p>
+		<p>This is how we would do it directly in MSSQL</p>
+		<pre>
+			<code class="language-sql">
+ALTER DATABASE dbname SET OFFLINE WITH ROLLBACK IMMEDIATE;
+RESTORE DATABASE dbname FROM DISK = /path/to/backup.bak WITH REPLACE;
+ALTER DATABASE dbname SET ONLINE;
+			</code>
+		</pre>
+
+		<p>Similar to our backup wrapper method, we can create a restore wrapper method.</p>
+		<pre>
+			<code class="language-csharp"> // DbUtility.cs
+public static async Task RestoreDatabaseAsync(string backupFilePath, string connectionString, string dbname)
+{
+
+	using var connection = new SqlConnection(connectionString);
+	await connection.OpenAsync();
+
+	var commandText = $"ALTER DATABASE {dbname} SET OFFLINE WITH ROLLBACK IMMEDIATE; " +
+						$"RESTORE DATABASE {dbname} FROM DISK = '{backupFilePath}' WITH REPLACE; " +
+						$"ALTER DATABASE {dbname} SET ONLINE;";
+
+	using var command = new SqlCommand(commandText, connection);
+	await command.ExecuteNonQueryAsync();
+	Console.WriteLine($"Database successfully restored from {backupFilePath}");
+}
+			</code>
+		</pre>
+		<h2 id="cli-command" tabindex="-1">Adding as a CLI Command<a class="header-anchor" href="#cli-command">#</a>
+		</h2>
+		<p>The previous methods are simply static utility methods.The last part of this endeavoer is to add them as CLI arguments
+			commands for our application. We can do that by modifying the Program.cs file.</p>
+
+
+		<pre>
+			<code class="language-csharp">// Program.cs
+var shouldBackup = args.Length > 0 && args.ToList().Contains("--db-backup");
+var shouldRestore = args.Length > 0 && args.ToList().Contains("--db-restore");
+var connString = builder.Configuration.GetConnectionString();
+if(shouldBackup)
+{
+	await DbUtility.BackupDatabaseAsync("/backups/backup.bak", connectionString, "LocalDb");
+}
+else if(shouldRestore)
+{
+	var argIndex = Array.IndexOf(args, "--db-restore");
+	if(argIndex < args.Length - 1)	
+	{
+		var backupFilePath = args[argIndex + 1];
+		await DbUtility.RestoreDatabaseAsync(backupFilePath, connectionString, "LocalDb");
+	}
+}
+			</code>
+		</pre>
+
+		<p>Now we can use the following commands right from the CLI:</p>
+		<pre>
+			<code class="language-bash">dotnet run --db-backup</code>
+			<code class="language-bash">dotnet run --db-restore /backups/backup.bak</code>
+		</pre>
+
+
+
+
+
+
+
+
+		<ul class="links-nextprev">
+			<li>Previous: <a href="/blog/2024/01/31-migrating-to-htmx.html">Migrating to HTMX</a></li>
+		</ul>
+
+	</main>
+
+	<footer></footer>
+	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+	<!-- and it's easy to individually load additional languages -->
+	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/csharp.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/sql.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</body>
+
+</html>

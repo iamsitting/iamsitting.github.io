@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router";
+import { Link, useParams } from "react-router-dom";
 import { getPostBySlug } from "~/lib/api";
 import Loader from "~/components/Loader";
 import type { Post } from "~/lib/api";

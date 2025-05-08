@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { getAllPosts, getAllCategories } from "../lib/api";
 import { useDebounce } from "../lib/hooks";
 import Loader from "../components/Loader";

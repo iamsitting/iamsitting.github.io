@@ -1,7 +1,7 @@
 // src/components/Navbar.tsx
 "use client";
 import React from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import DevoteLogo from "./IamSittingLogo";
 
 export default function Navbar() {

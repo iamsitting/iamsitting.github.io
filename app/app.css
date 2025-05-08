@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+:root {
+  --background: #1A1F1A;
+  --foreground: #E8E8E8;
+  --text: #B0B0B0;
+  --card: #242824;
+  --accent: #2E7D32;
+  --accent-hover: #388E3C;
+  --border: #2A2F2A;
+}
+
+@layer base {
+  body {
+    @apply bg-[#1A1F1A] text-[#E8E8E8] transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-[#2E7D32] text-[#E8E8E8] rounded-md hover:bg-[#388E3C] transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-[#242824] text-[#E8E8E8] rounded-md hover:bg-[#2A2F2A] transition-colors border border-[#2A2F2A];
+  }
+  
+  .card {
+    @apply bg-[#242824] p-6 rounded-lg border border-[#2A2F2A];
+  }
+  
+  .input {
+    @apply bg-[#2A2F2A] text-[#E8E8E8] placeholder-[#808080] px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2E7D32] border border-[#2A2F2A];
+  }
+}

@@ -1,0 +1,94 @@
+.typst-content {
+  /* Typst content styles */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.typst-content h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin: 1em 0 0.5em;
+}
+
+.typst-content h2 {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0.8em 0 0.4em;
+}
+
+.typst-content h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0.6em 0 0.3em;
+}
+
+.typst-content p {
+  margin: 1em 0;
+}
+
+.typst-content ul, .typst-content ol {
+  margin: 1em 0;
+  padding-left: 2em;
+}
+
+.typst-content li {
+  margin: 0.5em 0;
+}
+
+.typst-content code {
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  background-color: #f5f5f5;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+.typst-content pre {
+  background-color: #f5f5f5;
+  padding: 1em;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+.typst-content blockquote {
+  border-left: 4px solid #4CAF50;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  background-color: #f9f9f9;
+}
+
+.typst-content a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.typst-content a:hover {
+  text-decoration: underline;
+}
+
+.typst-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin: 1em 0;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  .typst-content {
+    color: #E8F5E8;
+  }
+
+  .typst-content code {
+    background-color: #1A2A1A;
+  }
+
+  .typst-content pre {
+    background-color: #1A2A1A;
+  }
+
+  .typst-content blockquote {
+    background-color: #1A2A1A;
+  }
+} 

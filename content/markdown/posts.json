@@ -1,0 +1,15 @@
+[
+  {
+    "slug": "hello-world",
+    "title": "Hello World",
+    "description": "My first blog post",
+    "publishedAt": "2024-03-20",
+    "author": {
+      "name": "Carlos Salamanca"
+    },
+    "category": {
+      "name": "General"
+    },
+    "content": "\n# Hello World\n\nThis is my first blog post. I'm excited to share my thoughts and ideas with you.\n\n## Why I'm Writing\n\nI believe in the power of sharing knowledge and experiences. Through this blog, I hope to:\n\n- Share insights from my work\n- Document my learning journey\n- Connect with like-minded individuals\n- Contribute to the community\n\n## What to Expect\n\nIn future posts, I'll be covering topics like:\n\n1. Software Engineering\n2. Artificial Intelligence\n3. System Design\n4. Education and Learning\n\n## Code Example\n\nHere's a simple Python function:\n\n```python\ndef greet(name):\n    return f\"Hello, {name}!\"\n\n# Usage\nprint(greet(\"World\"))\n```\n\n## Math Support\n\nSometimes we need to express mathematical concepts:\n\n$E = mc^2$\n\n## Conclusion\n\nI'm looking forward to writing more posts and engaging with readers. Stay tuned for more content!\n\n[Back to Home](/) "
+  }
+]

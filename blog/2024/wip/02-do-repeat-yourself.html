@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRY: Do Repeat Yourself</title>
+    <meta name="description" content="DRY: Do Repeat Yourself">
+    <!-- <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Eleventy Base Blog v8"> -->
+    <!-- <link rel="alternate" href="/feed/feed.json" type="application/json" title="Eleventy Base Blog v8"> -->
+    <link rel="stylesheet" href="/assets/code-blocks.css">
+    <link rel="stylesheet" href="/assets/main.css">
+</head>
+
+<body>
+    <a href="#skip" class="visually-hidden">Skip to main content</a>
+
+    <header>
+        <a href="/" class="home-link">iamsitting</a>
+        <nav>
+            <h2 class="visually-hidden">Top level navigation menu</h2>
+            <ul class="nav">
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/blog/">Archive</a></li>
+                <li class="nav-item"><a href="/about/">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="skip">
+
+        <h1>DRY: Do Repeat Yourself</h1>
+
+        <ul class="post-metadata">
+            <li><time datetime="2024-02-02">Feb 02, 2024</time></li>
+        </ul>
+
+        <p>It's not a typo. I really do mean <strong>Do</strong> Repeat Yourself. There is a common software development
+            principle known as DRY (don't repeat yourself). It clearly has its merits, however, this principle can be
+            one of the greatest mistakes in software development, especially for the unexperienced.</p>
+
+        <p>The DRY principle is the idea that code should not be repeated. The reasons I've heard before are:</p>
+        <ul>
+            <li>Less code, means it's easier to maintain and refactor.</li>
+            <li>Less code, means it's easier to read and fix.</li>
+        </ul>
+        <p>These reasons are absolutely valid and there is nothing wrong with the DRY principle. What's wrong is how
+            it's implemented. Often, reducing code means abstracting code. And here lies the problem: the wrong
+            abstraction. I a piece of behavior is improperly abstracted you will get:</p>
+        <ul>
+            <li>More code... eventually. At first, there will be less code, but as requirements change, the abstraction
+                will need to cover more cases than originally intended and making it more difficult to maintain.</li>
+            <li>Because a new layer of abstraction was introduced, a developer has to learn both the abstraction and
+                that which was abstracted. Without the proper documentation, this will be more difficult to read and
+                more difficult to fix.</li>
+            <li>Because of the prior two problems, you will be forced to think of solutions to problems that do not
+                exist (and may never exist). Therefore, at some point, you will spend time fixing problems that do not
+                exist and in doing so, perhaps even introduce problems that would not exist otherwise.</li>
+        </ul>
+        <p>Some general rules I have picked up:</p>
+        <ol>
+            <li>Repeat yourself up to 5 times. Prematurely abstracting adds unnecessary complexity. I am okay
+                refactoring the same code in 5 files, or adding the same
+                argument to the same 5 functions. Any more than that and it may be time to consider a layer of
+                abstraction.</li>
+            <li>No more than 1 layer of abstraction. Once we open up that can of worms, when will it end. For me it's
+                once. What do I mean by that?. Suppose I created an abstract class that contains properties that I want
+                all of my entities to share: <code>BaseEntity</code>. Therefore, my <code>BaseEntity</code> class will
+                only have 1 level inheritance. There will be no <code>BaseEntity</code> -> <code>PersonEntity</code> ->
+                <code>Patient</code>. At this point, I am likely using the wrong abstraction for what I am trying to
+                accomplish.
+            </li>
+        </ol>
+        <p>You might still not be sold. Understandable. Here are some of the experiences that helped me come to this:
+        </p>
+        <ol>
+            <li>Vertical Slice Architecture (VSA). The first time I used this kind of architecture was actually in
+                Django. Django has this idea of modules, where you can organize your MVC files in modules. ASP.NET has
+                the concept of Areas or Razor Pages that facilitate this kind of archtitecture. Angular also facilitates
+                this kind of architecture. I worked on a project that was an domain-driven/onion-layered architecture.
+                When I migrated it to VSA, there was significantly less code, less abstraction, and less complexity. A
+                little more repition, sure. Less testable? The UI was already being manually tested. Anything below the
+                application layer was still onion-layered and just as testable.
+            </li>
+            <li>Locality of Behavior. One of my favorite things about Angular was the separation of concerns that was
+                forced on me. CSS, HTML, and JS code were literally in separate files. Then I learned Vue, and loved it
+                more since, CSS, HTML, and JS were still separated, but all in one file. There was something convenient
+                and intuitive knowing that all my concerns were in one place. After moving over a project to HTMX and
+                reducing the amount of javascript to zero, I started inlining javascript and css. Did I have to write
+                <code>class="uk-button uk-buttom-small uk-button-primary"</code> over and over again? Sure. But it
+                worked. What if I need to migrate from UIKit to Tailwind. It's unlikely. And there are so many other
+                problems, that I am not going to try to fix a problem that will likely never come.
+            </li>
+            <li>Go. I started learning Go, and love going back to the ideas of structs. Most modern programming
+                languages offer the Class construct as programming feature. It's "feature" is that it can be inherited.
+                This easily one of the most abused language features I have ever seen. Go's structs are non-inheritable.
+                Therefore you are forced to think away from inheritance. You may ask what's the problem with
+                inheritance. The problem is not with inheritance. The problem is with coupling. I develop in C# which
+                has classes. This is not about programming languages or classes or even about inheritance. It's about unnecessary coupling, especially in premature abstraction.</li>
+        </ol>
+
+        <h2 id="section-header" tabindex="-1">{{Section Header}} <a class="header-anchor" href="#section-header">#</a>
+        </h2>
+        <p>{{More content}}</p>
+
+        <!-- <pre class="language-js"
+			tabindex="0"><code class="language-js"><span class="token comment">// this is a command</span>
+			<span class="token keyword">function</span> <span class="token function">myCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token keyword">let</span> counter <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+				counter<span class="token operator">++</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			
+			<span class="token comment">// Test with a line break above this line.</span>
+			console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> -->
+
+        <ul class="links-nextprev">
+            <li>Previous: <a href="/">{{[revious}}</a></li>
+            <li>Next: <a href="/">{{next}}</a></li>
+        </ul>
+
+    </main>
+
+    <footer></footer>
+</body>
+
+</html>

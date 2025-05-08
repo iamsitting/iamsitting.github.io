@@ -1,6 +1,6 @@
 ---
 title: "The Seed of David Becoming the Son of God"
-description: "My first blog post"
+description: "An exploration in to Romans 1:3-4"
 date: "2025-05-04"
 author: "Carlos Salamanca"
 category: "Bible"

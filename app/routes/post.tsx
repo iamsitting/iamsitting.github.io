@@ -18,21 +18,23 @@ interface CodeProps {
 }
 
 export default function Post() {
-  const { slug } = useParams();
+  const params = useParams();
   const [post, setPost] = useState<Post | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPost = async () => {
-      if (!slug) {
-        setError("Invalid post slug");
+      // Get the full path from the URL
+      const fullPath = window.location.pathname.replace('/post/', '');
+      if (!fullPath) {
+        setError("Invalid post path");
         setIsLoading(false);
         return;
       }
 
       try {
-        const response = await getPostBySlug(slug);
+        const response = await getPostBySlug(fullPath);
         if (!response) {
           throw new Error("Post not found");
         }
@@ -47,7 +49,7 @@ export default function Post() {
     };
 
     fetchPost();
-  }, [slug]);
+  }, [params]);
 
   // Update meta tags when post data is available
   useEffect(() => {

@@ -1,7 +1,7 @@
 ---
 title: "Making Microservices Manageable with .NET Aspire, Git Submodules, and OpenTelemetry"
 description: "Let's look at .NET Aspire as a potential solution to microservices development"
-date: "2024-03-20"
+date: "2025-02-05"
 author: "Carlos Salamanca"
 category: "General"
 ---

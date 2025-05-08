@@ -1,7 +1,7 @@
 ---
 title: "Correlating Hangfire Background Jobs with HTTP Requests Using Datadog and .NET"
 description: "Let's look at how to correlate hangfire jobs with http requests using datadog"
-date: "2024-03-20"
+date: "2025-03-04"
 author: "Carlos Salamanca"
 category: "Software Engineering"
 ---

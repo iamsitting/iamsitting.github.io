@@ -1,86 +1,83 @@
-# Welcome to React Router!
+# iamsitting's Blog
 
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+A blog built with React Router and TypeScript.
 
 ## Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- Server-side rendering
+- TypeScript
+- TailwindCSS
+- Markdown content
+- Search functionality
 
-## Getting Started
-
-### Installation
-
-Install the dependencies:
+## Development
 
 ```bash
-npm install
+# Install dependencies
+yarn install
+
+# Start development server
+yarn dev
 ```
 
-### Development
+## Content Management
 
-Start the development server with HMR:
+1. Create markdown files in `content/markdown/YYYY/MM/`:
+   ```markdown
+   ---
+   title: Your Post Title
+   description: A brief description
+   date: YYYY-MM-DD
+   author: iamsitting
+   category: Optional Category
+   ---
 
-```bash
-npm run dev
-```
+   Your post content...
+   ```
 
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
+2. Build content:
+   ```bash
+   yarn build:content
+   ```
 
 ## Deployment
 
-### Docker Deployment
+1. Build content:
+   ```bash
+   yarn build:content
+   ```
 
-To build and run using Docker:
+2. Build application:
+   ```bash
+   yarn build
+   ```
 
-```bash
-docker build -t my-app .
+3. Deploy:
+   ```bash
+   yarn deploy
+   ```
 
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
+## Directory Structure
 
 ```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+├── app/                    # Application code
+│   ├── components/        # React components
+│   ├── lib/              # Utilities and API
+│   └── routes/           # Route components
+├── content/
+│   └── markdown/         # Blog posts
+│       └── YYYY/        # Year directories
+│           └── MM/      # Month directories
+├── public/               # Static assets
+│   ├── posts.*.json     # Versioned posts data
+│   └── posts.version.json # Version tracker
+├── scripts/             # Build scripts
+└── package.json         # Project config
 ```
 
 ## Styling
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+This blog uses [Tailwind CSS](https://tailwindcss.com/) for styling. The design is responsive and follows modern web practices.
 
 ---
 

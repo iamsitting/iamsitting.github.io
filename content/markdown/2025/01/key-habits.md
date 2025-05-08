@@ -1,7 +1,7 @@
 ---
 title: "Key Habits of a Leader"
 description: "Some reflections on The 7 Habits of Highly Effective People by Stephen Covey"
-date: "2024-03-20"
+date: "2025-01-31"
 author: "Carlos Salamanca"
 category: "Leadership"
 ---

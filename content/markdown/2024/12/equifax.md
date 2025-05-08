@@ -1,7 +1,7 @@
 ---
 title: "What I learned from Equifax"
 description: ""
-date: "2024-03-20"
+date: "2024-12-01"
 author: "Carlos Salamanca"
 category: "Leadership"
 ---

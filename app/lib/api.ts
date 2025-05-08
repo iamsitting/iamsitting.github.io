@@ -28,6 +28,23 @@ function getCategoryId(name: string): number {
     return categoryNameToId.get(name)!;
 }
 
+// Helper function to get the latest posts file
+async function getLatestPostsFile(): Promise<Post[]> {
+    // First get the version file
+    const versionResponse = await fetch('/posts.version.json');
+    if (!versionResponse.ok) {
+        throw new Error('Failed to fetch posts version');
+    }
+    const { version } = await versionResponse.json();
+
+    // Then get the versioned posts file
+    const postsResponse = await fetch(`/posts.${version}.json`);
+    if (!postsResponse.ok) {
+        throw new Error('Failed to fetch posts');
+    }
+    return postsResponse.json();
+}
+
 // Fetch all posts
 export const getAllPosts = async (
     page: number = 1,
@@ -35,11 +52,7 @@ export const getAllPosts = async (
     categoryId?: number
 ): Promise<{ posts: Post[]; pagination: PaginatedResponse }> => {
     try {
-        const response = await fetch('/posts.json');
-        if (!response.ok) {
-            throw new Error('Failed to fetch posts');
-        }
-        let posts: Post[] = await response.json();
+        let posts = await getLatestPostsFile();
 
         // Apply search filter
         if (searchQuery) {
@@ -83,12 +96,7 @@ export const getAllPosts = async (
 // Fetch a post by slug
 export const getPostBySlug = async (slug: string): Promise<Post | null> => {
     try {
-        const response = await fetch('/posts.json');
-        if (!response.ok) {
-            throw new Error('Failed to fetch posts');
-        }
-        const posts: Post[] = await response.json();
-        
+        const posts = await getLatestPostsFile();
         const post = posts.find(p => p.slug === slug);
         return post || null;
     } catch (error) {
@@ -100,11 +108,7 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
 // Fetch all categories
 export const getAllCategories = async (): Promise<Category[]> => {
     try {
-        const response = await fetch('/posts.json');
-        if (!response.ok) {
-            throw new Error('Failed to fetch posts');
-        }
-        const posts: Post[] = await response.json();
+        const posts = await getLatestPostsFile();
         
         // Extract unique categories
         const categories = new Map<string, Category>();

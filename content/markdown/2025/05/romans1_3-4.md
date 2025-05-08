@@ -1,7 +1,7 @@
 ---
 title: "The Seed of David Becoming the Son of God"
 description: "My first blog post"
-date: "2024-03-20"
+date: "2025-05-04"
 author: "Carlos Salamanca"
 category: "Bible"
 ---

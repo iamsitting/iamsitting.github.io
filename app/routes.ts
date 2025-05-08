@@ -23,7 +23,7 @@ const routes: RouteObject[] = [
     }
   },
   {
-    path: 'post/:slug',
+    path: 'post/*',
     async lazy() {
       const { default: Component } = await import('./routes/post');
       return { Component };

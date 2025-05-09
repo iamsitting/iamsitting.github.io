@@ -14,9 +14,27 @@ export default function About() {
       <section className="mb-12">
         <h1 className="text-4xl font-bold text-[#E8F5E8] mb-6">About Me</h1>
         <div className="card">
-          <p className="text-[#A3C9A3] text-lg leading-relaxed">
-            Howdy! I'm an electrical engineer turned software developer. For a full employment history and picture check out my <a href="https://www.linkedin.com/in/your-profile" className="text-[#4CAF50] hover:text-[#66BB6A] underline" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+          <p className="text-[#A3C9A3] text-lg leading-relaxed space-y-4">
+            I'm a full stack developer with experience ranging from embedded systems to CMS platforms. I currently focus on .NET development, DevOps tooling, and hypermedia-driven APIs.
           </p>
+
+          <p className="text-[#A3C9A3] text-lg leading-relaxed space-y-4">
+            At BuildWitt, I build tools that support the construction and infrastructure industries—sectors vital to society but underserved by modern software.
+          </p>
+
+          <p className="text-[#A3C9A3] text-lg leading-relaxed space-y-4">
+            I'm pursuing a master's in Information Systems, with research focused on the impact of AI in software engineering.
+          </p>
+
+          <div className="text-[#A3C9A3] text-lg leading-relaxed space-y-4">
+            <p className="font-semibold">Focus Areas:</p>
+            <p>
+              Sociotechnical systems · Scalable architecture · Stream-aligned teams · DevOps culture · API-first thinking · Team-product fit · Long-term system health.
+            </p>
+            <p>
+              For a full employment history and picture check out my <a href="https://www.linkedin.com/in/cdsalamanca" className="text-[#4CAF50] hover:text-[#66BB6A] underline" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -158,8 +176,9 @@ export default function About() {
         <h2 className="text-3xl font-bold text-[#E8F5E8] mb-6">Learning</h2>
         <div className="card">
           <ul className="text-[#A3C9A3] space-y-2">
-            <li>Present - Writing an Interpreter in Go</li>
-            <li>Present - Frontend Masters - Algorithms [Go]</li>
+            <li>May 2025 - Extreme Ownership</li>
+            <li>Apr. 2025 - Machine Learning in Python</li>
+            <li>Jan. 2025 - 7 Habits of Highly Effective People</li>
             <li>Jan. 2024 - Dynamic Programming [Go] [C#]</li>
             <li>Oct. 2023 - Hypermedia Systems</li>
             <li>Jan. 2023 - The Unicorn Project</li>

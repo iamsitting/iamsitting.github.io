@@ -58,10 +58,18 @@ function generatePostMetadata() {
     // Extract metadata from frontmatter
     const { data: metadata, content } = matter(markdownContent);
     
-    // Get the relative path from MARKDOWN_DIR
-    const relativePath = path.relative(MARKDOWN_DIR, file);
-    const slug = relativePath.replace(/\.md$/, '');
+    // Use slug from frontmatter, fallback to filename without extension
+    const slug = metadata.slug || path.basename(file, '.md');
     
+    // Handle both single category (string) and multiple categories (array)
+    const categories = metadata.categories 
+      ? Array.isArray(metadata.categories) 
+        ? metadata.categories 
+        : [metadata.categories]
+      : metadata.category 
+        ? [metadata.category]
+        : [];
+
     return {
       slug,
       title: metadata.title || path.basename(file, '.md'),
@@ -70,7 +78,7 @@ function generatePostMetadata() {
       author: {
         name: metadata.author || 'iamsitting'
       },
-      category: metadata.category ? { name: metadata.category } : null,
+      categories: categories.map(name => ({ name })),
       content: content
     };
   });

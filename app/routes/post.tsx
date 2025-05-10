@@ -112,17 +112,24 @@ export default function Post() {
             <div className="flex items-center gap-2">
               <span>•</span>
               <time dateTime={post.publishedAt}>
-                {new Date(post.publishedAt).toLocaleDateString('en-US', {
+                {new Date(post.publishedAt + 'T00:00:00').toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric'
                 })}
               </time>
             </div>
-            {post.category && (
+            {post.categories.length > 0 && (
               <>
                 <span>•</span>
-                <span>{post.category.name}</span>
+                <div className="flex items-center gap-2">
+                  {post.categories.map((category, index) => (
+                    <span key={category.name}>
+                      {category.name}
+                      {index < post.categories.length - 1 && ', '}
+                    </span>
+                  ))}
+                </div>
               </>
             )}
           </div>

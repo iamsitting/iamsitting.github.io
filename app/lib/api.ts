@@ -11,9 +11,9 @@ export interface Post {
   author: {
     name: string;
   };
-  category: {
+  categories: {
     name: string;
-  } | null;
+  }[];
   content: string;
 }
 
@@ -66,7 +66,7 @@ export const getAllPosts = async (
         // Apply category filter
         if (categoryId) {
             posts = posts.filter(post => 
-                post.category && getCategoryId(post.category.name) === categoryId
+                post.categories.some(category => getCategoryId(category.name) === categoryId)
             );
         }
 
@@ -113,14 +113,16 @@ export const getAllCategories = async (): Promise<Category[]> => {
         // Extract unique categories
         const categories = new Map<string, Category>();
         posts.forEach(post => {
-            if (post.category && !categories.has(post.category.name)) {
-                const id = getCategoryId(post.category.name);
-                categories.set(post.category.name, {
-                    documentId: id,
-                    name: post.category.name,
-                    description: ''
-                });
-            }
+            post.categories.forEach(category => {
+                if (!categories.has(category.name)) {
+                    const id = getCategoryId(category.name);
+                    categories.set(category.name, {
+                        documentId: id,
+                        name: category.name,
+                        description: ''
+                    });
+                }
+            });
         });
 
         return Array.from(categories.values());

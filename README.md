@@ -29,7 +29,8 @@ yarn dev
    description: A brief description
    date: YYYY-MM-DD
    author: iamsitting
-   category: Optional Category
+   slug: your-custom-slug  # Optional: If not provided, will use filename without extension
+   categories: [Category1, Category2]  # Can be a single category or an array of categories
    ---
 
    Your post content...

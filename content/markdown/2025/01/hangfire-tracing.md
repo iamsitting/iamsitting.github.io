@@ -4,11 +4,12 @@ description: "Let's look at how to correlate hangfire jobs with http requests us
 date: "2025-03-04"
 author: "Carlos Salamanca"
 category: "Software Engineering"
+slug: "correlating-hangfire-jobs-http-requests-datadog"
 ---
 
 # Correlating Hangfire Background Jobs with HTTP Requests Using Datadog and .NET
 
-Distributed tracing can feel like magic — until it doesn’t work.
+Distributed tracing can feel like magic — until it doesn't work.
 
 Recently, while integrating observability into a .NET web app using **Datadog**, I hit a wall. I had traces from HTTP requests. I had logs. I had background jobs running through **Hangfire**. But there was one crucial gap:
 
@@ -32,13 +33,13 @@ If you're using **Datadog APM**, the default behavior is:
 - The background job gets a *separate trace*.
 - You, the human, get lost trying to connect the dots.
 
-That’s because **traces don’t magically carry over**. Unless you explicitly pass trace context, each job runs in its own isolated observability bubble.
+That's because **traces don't magically carry over**. Unless you explicitly pass trace context, each job runs in its own isolated observability bubble.
 
 ---
 
 ## 🧠 A Quick Primer on Traces, Spans, and Context
 
-If you're new to distributed tracing, here’s what you need to know:
+If you're new to distributed tracing, here's what you need to know:
 
 - A **trace** represents the full journey of a request through a system.
 - A **span** is a single unit of work (e.g., an HTTP handler, a DB call, or a background job).
@@ -147,7 +148,7 @@ Just because you're using an APM tool doesn't mean your observability is complet
 
 ### 2. Traces and Logs Are Not the Same
 
-You might be logging a `trace_id`, but unless that ID is part of a real, active trace context — **your traces won’t be linked**.
+You might be logging a `trace_id`, but unless that ID is part of a real, active trace context — **your traces won't be linked**.
 
 ### 3. Spans Must Be Linked Explicitly
 
@@ -155,7 +156,7 @@ Creating a new span doesn't mean it's part of an existing trace. To link spans, 
 
 ### 4. Tags Help Humans, Context Helps Systems
 
-Setting `dd.trace_id` as a tag is helpful for searching, but it’s not enough to link spans. **Tags are for you; context is for the APM**.
+Setting `dd.trace_id` as a tag is helpful for searching, but it's not enough to link spans. **Tags are for you; context is for the APM**.
 
 ---
 
@@ -164,8 +165,8 @@ Setting `dd.trace_id` as a tag is helpful for searching, but it’s not enough t
 Yes, OpenTelemetry could help standardize this, and Datadog supports OTLP ingestion. But:
 
 - OpenTelemetry is still evolving in .NET
-- Datadog’s native SDK offers powerful control
-- This solution works now — and plays well with Datadog’s UI
+- Datadog's native SDK offers powerful control
+- This solution works now — and plays well with Datadog's UI
 
 That said, the principles here still apply if you're using OTEL — it just changes **how** you carry and restore context.
 
@@ -175,7 +176,7 @@ That said, the principles here still apply if you're using OTEL — it just chan
 
 Getting this working took some deep dives — not just into code, but into how distributed tracing *really works*. But now, when I look at a trace in Datadog and see an HTTP request linked cleanly to a background job, it feels worth it.
 
-> Observability isn’t just about capturing data — it’s about **connecting it**.
+> Observability isn't just about capturing data — it's about **connecting it**.
 
 ---
 

@@ -137,9 +137,21 @@ export default function Blog() {
             <h2 className="text-2xl font-semibold text-gray-900 dark:text-[#E8F5E8] mb-2">
               {post.title}
             </h2>
-            <div className="text-gray-600 dark:text-[#A3C9A3] mb-4">
+            <div className="text-gray-600 dark:text-[#A3C9A3] mb-2">
               {new Date(post.publishedAt).toLocaleDateString()}
             </div>
+            {post.categories.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-4">
+                {post.categories.map(category => (
+                  <span 
+                    key={category.name}
+                    className="px-2 py-1 text-sm bg-[#4CAF50] bg-opacity-10 text-gray-900 rounded-full"
+                  >
+                    {category.name}
+                  </span>
+                ))}
+              </div>
+            )}
             <p className="text-gray-700 dark:text-[#A3C9A3] mb-4">
               {post.description}
             </p>

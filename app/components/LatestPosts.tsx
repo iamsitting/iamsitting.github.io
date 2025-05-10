@@ -18,7 +18,11 @@ export default function LatestPosts({ posts }: LatestPostsProps) {
               {post.title}
             </h3>
             <div className="text-gray-600 dark:text-[#A3C9A3] mb-4">
-              {new Date(post.publishedAt).toLocaleDateString()}
+            {new Date(post.publishedAt + 'T00:00:00').toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
             </div>
             <p className="text-gray-700 dark:text-[#A3C9A3] mb-4">
               {post.description}

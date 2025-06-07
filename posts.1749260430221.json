@@ -1,5 +1,22 @@
 [
   {
+    "slug": "rethinking-the-post-mortem",
+    "title": "Rethinking the Post-Mortem",
+    "description": "Let's take a look at post-mortems",
+    "publishedAt": "2025-06-03",
+    "author": {
+      "name": "Carlos Salamanca"
+    },
+    "categories": [
+      {
+        "name": [
+          "Software Engineering"
+        ]
+      }
+    ],
+    "content": "\n# Rethinking the Post-Mortem\n\nWe had an incident recently.\n\nIt wasn’t catastrophic. No alerts blazing through the night. No major outages. But it was enough to interrupt normal operations—and enough to ask, “What went wrong here?”\n\nLike most teams aiming for reliability, we followed up with a post-mortem.\n\nThe name always feels a bit dramatic to me. *Post-mortem.* It carries the tone of something final. Clinical. Like something died and now it’s time to dissect it.\n\nBut that’s not what we were doing.\n\nWe weren’t examining a corpse. We were reviewing a system—*a living, evolving system*—that buckled under pressure. And more importantly, we were looking at **how we contributed to that pressure**.\n\n---\n\n## The Process Isn’t Optional\n\nThe post-mortem process itself isn’t comfortable. It requires slowing down. Rewinding. Confronting decisions we made with good intentions but bad assumptions. It means recognizing where process was missing—or where we chose to bypass it.\n\nBut this discomfort is necessary. Because if you're building anything complex, failure isn’t optional—it’s inevitable. The difference is whether you treat it as a setback or an opportunity.\n\nIn our case, it wasn’t a single misstep. It was a chain of issues:  \n- Overconfidence in how far our current systems could stretch  \n- Underutilizing the expertise of our technical partners  \n- Gaps in handoffs and unclear ownership  \n\nThe system didn’t fail us. *We failed to support the system.*\n\n---\n\n## Scaling Means Supporting the System\n\nAs I was reflecting on the incident, a line from *The Art of Scalability* stood out:\n\n> “Scalable systems depend on scalable processes.”\n\nIt’s simple—but it’s deeply true.\n\nYou can write solid code. Deploy it with confidence. Monitor it with the best tools. But if your team doesn’t have the process to support growth, even a well-built system can break under its own weight.\n\nThat’s what the post-mortem helps reveal. Not just what broke, but *why it was able to break in that particular way*.\n\nAnd once you start seeing it through that lens, the post-mortem stops being a reaction to failure—and starts becoming a tool for designing better systems.\n\n---\n\n## Not Looking Back—Looking Ahead\n\nSo maybe *post-mortem* isn’t the right word for what this really is.\n\nWe didn’t lose something. We learned something.\n\nWe identified pressure points. We surfaced blind spots. And we made changes to keep the next version of the system more resilient than the last.\n\nThat’s not about blame. That’s about **building forward**.\n\nAnd in any team serious about scale, that’s the only direction worth going."
+  },
+  {
     "slug": "eating-in-1-corinthians",
     "title": "Eating in 1 Corinthians",
     "description": "Exploring the theme of eating in 1 Corinthians",

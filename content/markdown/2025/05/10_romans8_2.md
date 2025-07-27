@@ -3,7 +3,7 @@ title: "The Law That Liberates: Living by the Spirit in Romans 8"
 description: "Diving into the law of the Spirit of life"
 date: "2025-05-09"
 author: "Carlos Salamanca"
-category: "Bible"
+category: ["Bible"]
 slug: "romans-8-law-of-the-spirit"
 ---
 

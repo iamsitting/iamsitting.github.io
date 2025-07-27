@@ -3,7 +3,7 @@ title: "Making Microservices Manageable with .NET Aspire, Git Submodules, and Op
 description: "Let's look at .NET Aspire as a potential solution to microservices development"
 date: "2025-02-05"
 author: "Carlos Salamanca"
-category: "Software Engineering"
+category: ["Software Engineering"]
 slug: "microservices-manageable-dotnet-aspire"
 ---
 

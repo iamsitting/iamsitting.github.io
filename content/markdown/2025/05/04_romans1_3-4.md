@@ -3,7 +3,7 @@ title: "The Seed of David Becoming the Son of God"
 description: "An exploration in to Romans 1:3-4"
 date: "2025-05-04"
 author: "Carlos Salamanca"
-category: "Bible"
+category: ["Bible"]
 slug: "seed-of-david-son-of-god-romans"
 ---
 

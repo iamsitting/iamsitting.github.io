@@ -3,7 +3,7 @@ title: "Correlating Hangfire Background Jobs with HTTP Requests Using Datadog an
 description: "Let's look at how to correlate hangfire jobs with http requests using datadog"
 date: "2025-03-04"
 author: "Carlos Salamanca"
-category: "Software Engineering"
+category: ["Software Engineering"]
 slug: "correlating-hangfire-jobs-http-requests-datadog"
 ---
 

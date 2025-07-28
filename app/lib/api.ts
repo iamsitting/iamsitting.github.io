@@ -66,7 +66,12 @@ export const getAllPosts = async (
         // Apply category filter
         if (categoryId) {
             posts = posts.filter(post => 
-                post.categories.some(category => getCategoryId(category.name) === categoryId)
+                post.categories.some(category => {
+                    const categoryName = Array.isArray(category.name) 
+                        ? category.name[0] 
+                        : category.name;
+                    return getCategoryId(categoryName) === categoryId;
+                })
             );
         }
 
@@ -114,11 +119,16 @@ export const getAllCategories = async (): Promise<Category[]> => {
         const categories = new Map<string, Category>();
         posts.forEach(post => {
             post.categories.forEach(category => {
-                if (!categories.has(category.name)) {
-                    const id = getCategoryId(category.name);
-                    categories.set(category.name, {
+                // Handle the case where category.name might be an array
+                const categoryName = Array.isArray(category.name) 
+                    ? category.name[0] 
+                    : category.name;
+                
+                if (!categories.has(categoryName)) {
+                    const id = getCategoryId(categoryName);
+                    categories.set(categoryName, {
                         documentId: id,
-                        name: category.name,
+                        name: categoryName,
                         description: ''
                     });
                 }

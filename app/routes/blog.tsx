@@ -142,14 +142,19 @@ export default function Blog() {
             </div>
             {post.categories.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-4">
-                {post.categories.map(category => (
-                  <span 
-                    key={category.name}
-                    className="px-2 py-1 text-sm bg-[#4CAF50] bg-opacity-10 text-gray-900 rounded-full"
-                  >
-                    {category.name}
-                  </span>
-                ))}
+                {post.categories.map(category => {
+                  const categoryName = Array.isArray(category.name) 
+                    ? category.name[0] 
+                    : category.name;
+                  return (
+                    <span 
+                      key={categoryName}
+                      className="px-2 py-1 text-sm bg-[#4CAF50] bg-opacity-10 text-gray-900 rounded-full"
+                    >
+                      {categoryName}
+                    </span>
+                  );
+                })}
               </div>
             )}
             <p className="text-gray-700 dark:text-[#A3C9A3] mb-4">

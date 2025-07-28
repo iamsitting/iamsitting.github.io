@@ -6,26 +6,26 @@ interface LatestPostsProps {
 }
 
 export default function LatestPosts({ posts }: LatestPostsProps) {
-  // First, create a map to track how many posts we've taken from each category
+  // Create a map to track how many posts we've taken from each category
   const categoryCounts = new Map<string, number>();
   
-  // Then filter posts, maintaining original order but limiting per category
+  // Filter posts, maintaining original order but limiting per category
   const limitedPosts = posts.filter(post => {
-    // If post has no categories, treat it as "Uncategorized"
-    const categories = post.categories.length > 0 ? post.categories : [{ name: "Uncategorized" }];
+    // Determine the primary category for this post
+    // Handle the case where category.name might be an array
+    const primaryCategory = post.categories.length > 0 
+      ? (Array.isArray(post.categories[0].name) 
+          ? post.categories[0].name[0] 
+          : post.categories[0].name)
+      : "Uncategorized";
     
-    // Check if we can take this post (if any of its categories haven't reached the limit)
-    const canTakePost = categories.some(category => {
-      const count = categoryCounts.get(category.name) || 0;
-      return count < 3;
-    });
+    // Check if we can take this post based on its primary category
+    const currentCount = categoryCounts.get(primaryCategory) || 0;
+    const canTakePost = currentCount < 3;
     
-    // If we can take the post, increment the counts for all its categories
+    // If we can take the post, increment the count for its primary category only
     if (canTakePost) {
-      categories.forEach(category => {
-        const currentCount = categoryCounts.get(category.name) || 0;
-        categoryCounts.set(category.name, currentCount + 1);
-      });
+      categoryCounts.set(primaryCategory, currentCount + 1);
       return true;
     }
     

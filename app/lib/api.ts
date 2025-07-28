@@ -45,6 +45,23 @@ async function getLatestPostsFile(): Promise<Post[]> {
     return postsResponse.json();
 }
 
+// Helper function to get the latest papers file
+async function getLatestPapersFile(): Promise<Post[]> {
+    // First get the version file
+    const versionResponse = await fetch('/papers.version.json');
+    if (!versionResponse.ok) {
+        throw new Error('Failed to fetch papers version');
+    }
+    const { version } = await versionResponse.json();
+
+    // Then get the versioned papers file
+    const papersResponse = await fetch(`/papers.${version}.json`);
+    if (!papersResponse.ok) {
+        throw new Error('Failed to fetch papers');
+    }
+    return papersResponse.json();
+}
+
 // Fetch all posts
 export const getAllPosts = async (
     page: number = 1,
@@ -138,6 +155,18 @@ export const getAllCategories = async (): Promise<Category[]> => {
         return Array.from(categories.values());
     } catch (error) {
         console.error("Error fetching categories:", error);
+        throw new Error("Server error");
+    }
+};
+
+// Fetch a paper by slug
+export const getPaperBySlug = async (slug: string): Promise<Post | null> => {
+    try {
+        const papers = await getLatestPapersFile();
+        const paper = papers.find(p => p.slug === slug);
+        return paper || null;
+    } catch (error) {
+        console.error("Error fetching paper:", error);
         throw new Error("Server error");
     }
 };

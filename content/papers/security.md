@@ -145,25 +145,26 @@ While the insecurity position appeals to several serious passages of Scripture, 
 
 These objections often sound less like “the Bible says…” and more like “But that doesn’t seem fair…” or “That would make people careless…”
 
+
 1. **Motivation Objection**  
    > “If salvation can’t be lost, what’s the motivation to live righteously?”
 
-This view assumes that fear of losing salvation is the primary driver of Christian obedience.
+   This view assumes that fear of losing salvation is the primary driver of Christian obedience.
 
 2. **Justice Objection**  
    > “How can God save someone who continues in sin?”
 
-The concern here is that security makes God appear permissive or unjust.
+   The concern here is that security makes God appear permissive or unjust.
 
 3. **Authenticity Objection**  
    > “Isn’t it just redefining salvation when we say someone who fell away was never saved?”
 
-This objection critiques the idea that a true believer can never fall away by saying it’s a no-lose proposition that lacks meaningful criteria.
+   This objection critiques the idea that a true believer can never fall away by saying it’s a no-lose proposition that lacks meaningful criteria.
 
 4. **Fear of Cheap Grace**  
    > “If salvation is secure, people will live however they want.”
 
-The idea here is that grace must be bounded by threat or consequence to be effective.
+   The idea here is that grace must be bounded by threat or consequence to be effective.
 
 These objections are not without emotional and pastoral weight, but they reveal something crucial: that the rejection of eternal security is often driven less by careful exegesis of the text, and more by what is assumed must be true of God, faith, or the believer's moral accountability.
 
@@ -386,15 +387,15 @@ The following appendix provides detailed exegetical analysis of passages commonl
 
 **Dispensational Interpretation:** Several factors point to kingdom exclusion rather than eternal condemnation:
 
-1. **Kingdom Language:** The text specifically mentions "entering the kingdom of heaven," not eternal salvation or hell. This aligns with millennial kingdom participation rather than eternal destiny.
+- **Kingdom Language:** The text specifically mentions "entering the kingdom of heaven," not eternal salvation or hell. This aligns with millennial kingdom participation rather than eternal destiny.
 
-2. **Recognition of Lordship:** These individuals clearly acknowledge Jesus as Lord and have ministered in His name with apparent supernatural results. This suggests some level of genuine relationship.
+- **Recognition of Lordship:** These individuals clearly acknowledge Jesus as Lord and have ministered in His name with apparent supernatural results. This suggests some level of genuine relationship.
 
-3. **"I Never Knew You":** The Greek *oudepote* (never) is puzzling if these were once-saved individuals. However, the word "knew" (*ginōskō*) doesn't necessarily mean "saved" but often refers to intimate, personal knowledge or approval. This must be reconciled with Romans 10:13: "whoever calls on the name of the Lord shall be saved." These individuals clearly called Jesus "Lord" (twice for emphasis), yet Jesus says He "never knew" them.
+- **"I Never Knew You":** The Greek *oudepote* (never) is puzzling if these were once-saved individuals. However, the word "knew" (*ginōskō*) doesn't necessarily mean "saved" but often refers to intimate, personal knowledge or approval. This must be reconciled with Romans 10:13: "whoever calls on the name of the Lord shall be saved." These individuals clearly called Jesus "Lord" (twice for emphasis), yet Jesus says He "never knew" them.
 
    The resolution lies in understanding that "knew" refers to intimate fellowship or approval, not salvation itself. Jesus may never have had intimate knowledge of their hearts or approved of their methodology, even while they genuinely called upon Him for salvation. They were saved by calling on His name (Rom. 10:13), but their lawless approach to ministry meant He never "knew" them in the sense of approving their works or having intimate fellowship with them. This fits perfectly with the judgment seat evaluation where works are tested and found wanting (1 Cor. 3:13-15), resulting in loss of reward but not loss of salvation.
 
-4. **Works-Focused Plea:** Their defense is entirely based on their works, not their faith or relationship. This fits the pattern of believers who will suffer loss at the judgment seat due to flawed motivation or methodology.
+- **Works-Focused Plea:** Their defense is entirely based on their works, not their faith or relationship. This fits the pattern of believers who will suffer loss at the judgment seat due to flawed motivation or methodology.
 
 #### 2. Hebrews 6:4–6 — Impossible to Restore
 
@@ -404,13 +405,13 @@ The following appendix provides detailed exegetical analysis of passages commonl
 
 **Dispensational Interpretation:**
 
-1. **Context of Maturity:** The broader context (Hebrews 5:11–6:12) focuses on spiritual maturity, not salvation maintenance. The writer rebukes readers for remaining "infants" and urges them to "go on to maturity."
+- **Context of Maturity:** The broader context (Hebrews 5:11–6:12) focuses on spiritual maturity, not salvation maintenance. The writer rebukes readers for remaining "infants" and urges them to "go on to maturity."
 
-2. **Hypothetical Language:** Many commentators note the conditional structure may be hypothetical—"if they fall away"—setting up an argument rather than describing an actual occurrence.
+- **Hypothetical Language:** Many commentators note the conditional structure may be hypothetical—"if they fall away"—setting up an argument rather than describing an actual occurrence.
 
-3. **Restoration to Repentance:** The text speaks of being impossible to restore "to repentance," not to salvation. This could refer to the specific kind of foundational repentance mentioned in 6:1, suggesting these believers have moved beyond basic doctrines and should not regress.
+- **Restoration to Repentance:** The text speaks of being impossible to restore "to repentance," not to salvation. This could refer to the specific kind of foundational repentance mentioned in 6:1, suggesting these believers have moved beyond basic doctrines and should not regress.
 
-4. **Kingdom Privileges:** The language of "tasting heavenly gifts" and "powers of the age to come" points to kingdom-related experiences. The loss may be of these privileges rather than eternal life.
+- **Kingdom Privileges:** The language of "tasting heavenly gifts" and "powers of the age to come" points to kingdom-related experiences. The loss may be of these privileges rather than eternal life.
 
 #### 3. Hebrews 10:26–31 — Willful Sin After Knowledge
 
@@ -420,13 +421,13 @@ The following appendix provides detailed exegetical analysis of passages commonl
 
 **Dispensational Interpretation:**
 
-1. **Audience:** The letter addresses "holy brothers who share in a heavenly calling" (3:1). The "we" language includes the author among those potentially facing this judgment.
+- **Audience:** The letter addresses "holy brothers who share in a heavenly calling" (3:1). The "we" language includes the author among those potentially facing this judgment.
 
-2. **Nature of Judgment:** The text speaks of "judgment" and "fury of fire" but doesn't specify eternal hell. The language could refer to severe temporal discipline or exclusion from kingdom privileges.
+- **Nature of Judgment:** The text speaks of "judgment" and "fury of fire" but doesn't specify eternal hell. The language could refer to severe temporal discipline or exclusion from kingdom privileges.
 
-3. **No Sacrifice Remains:** This doesn't necessarily mean no forgiveness is available, but that the sacrifice of Christ cannot be repeated. It may warn against treating His sacrifice lightly, with consequences affecting reward rather than salvation.
+- **No Sacrifice Remains:** This doesn't necessarily mean no forgiveness is available, but that the sacrifice of Christ cannot be repeated. It may warn against treating His sacrifice lightly, with consequences affecting reward rather than salvation.
 
-4. **Parallel to Mosaic Law:** The comparison to those who rejected Moses' law (v. 28) suggests covenant discipline rather than eternal judgment, as many who violated the law were disciplined but remained within Israel.
+- **Parallel to Mosaic Law:** The comparison to those who rejected Moses' law (v. 28) suggests covenant discipline rather than eternal judgment, as many who violated the law were disciplined but remained within Israel.
 
 #### 4. 2 Peter 2:20–22 — Entangled Again
 
@@ -436,13 +437,13 @@ The following appendix provides detailed exegetical analysis of passages commonl
 
 **Dispensational Interpretation:**
 
-1. **Knowledge vs. Faith:** The text speaks of "knowledge" (epignosis) of Christ but not necessarily saving faith. Knowledge can be intellectual without being regenerative.
+- **Knowledge vs. Faith:** The text speaks of "knowledge" (epignosis) of Christ but not necessarily saving faith. Knowledge can be intellectual without being regenerative.
 
-2. **Escape from Defilement:** This could describe moral reformation through Christian influence without genuine conversion—a common occurrence in Christian environments.
+- **Escape from Defilement:** This could describe moral reformation through Christian influence without genuine conversion—a common occurrence in Christian environments.
 
-3. **The Dog and Sow:** Peter's illustration (v. 22) uses animals returning to their nature, suggesting these individuals never experienced a change of nature through regeneration.
+- **The Dog and Sow:** Peter's illustration (v. 22) uses animals returning to their nature, suggesting these individuals never experienced a change of nature through regeneration.
 
-4. **Worse State:** The "worse state" may refer to greater judgment due to having known better, consistent with varying degrees of punishment based on knowledge (Luke 12:47–48).
+- **Worse State:** The "worse state" may refer to greater judgment due to having known better, consistent with varying degrees of punishment based on knowledge (Luke 12:47–48).
 
 #### 5. Revelation 2:11 — Hurt by the Second Death
 
@@ -452,13 +453,13 @@ The following appendix provides detailed exegetical analysis of passages commonl
 
 **Dispensational Interpretation:**
 
-1. **Specific Overcomers:** The "overcomers" here are those believers who successfully overcame their particular situation in Smyrna—facing persecution, poverty, and slander from false Jews (Rev. 2:8-10). These are believers who are dispensationally rewarded for their faithfulness under trial, and therefore are also subject to dispensational discipline if unfaithful.
+- **Specific Overcomers:** The "overcomers" here are those believers who successfully overcame their particular situation in Smyrna—facing persecution, poverty, and slander from false Jews (Rev. 2:8-10). These are believers who are dispensationally rewarded for their faithfulness under trial, and therefore are also subject to dispensational discipline if unfaithful.
 
-2. **Second Death Limited to Unrighteous:** Revelation 20:11-15 clearly establishes that only the unrighteous face the second death—those whose names are not found in the book of life are "thrown into the lake of fire." Romans 2:8 speaks of "wrath and fury" for "those who... do not obey the truth but obey unrighteousness." Since believers are declared righteous (Rom. 5:1), they cannot be cast into the second death.
+- **Second Death Limited to Unrighteous:** Revelation 20:11-15 clearly establishes that only the unrighteous face the second death—those whose names are not found in the book of life are "thrown into the lake of fire." Romans 2:8 speaks of "wrath and fury" for "those who... do not obey the truth but obey unrighteousness." Since believers are declared righteous (Rom. 5:1), they cannot be cast into the second death.
 
-3. **"Hurt" vs. "Cast Into":** The text says overcomers will not be "hurt" (*adikeō*) by the second death, not that they won't be "cast into" it. This distinction is crucial. While believers cannot be cast into the lake of fire (the ultimate second death), they may experience "hurt" or harm from the consequences of unfaithfulness—shame, loss of reward, or exclusion from kingdom privileges.
+- **"Hurt" vs. "Cast Into":** The text says overcomers will not be "hurt" (*adikeō*) by the second death, not that they won't be "cast into" it. This distinction is crucial. While believers cannot be cast into the lake of fire (the ultimate second death), they may experience "hurt" or harm from the consequences of unfaithfulness—shame, loss of reward, or exclusion from kingdom privileges.
 
-4. **Dispensational Consequences:** This aligns with the broader dispensational framework where faithful believers receive kingdom rewards while unfaithful believers suffer loss (1 Cor. 3:15). The "hurt" may refer to the painful experience of shame and loss at the judgment seat of Christ for those who were not faithful in their testing.
+- **Dispensational Consequences:** This aligns with the broader dispensational framework where faithful believers receive kingdom rewards while unfaithful believers suffer loss (1 Cor. 3:15). The "hurt" may refer to the painful experience of shame and loss at the judgment seat of Christ for those who were not faithful in their testing.
 
 #### 6. Revelation 3:5 — Blotted from the Book of Life
 
@@ -468,15 +469,15 @@ The following appendix provides detailed exegetical analysis of passages commonl
 
 **Dispensational Interpretation:**
 
-1. **Multi-Age Book of Life:** The book of life represents the totality of God's blessings across all ages—present benefits, millennial kingdom participation, and eternal rewards. It is not limited to salvation alone but encompasses the full scope of divine blessing throughout time.
+- **Multi-Age Book of Life:** The book of life represents the totality of God's blessings across all ages—present benefits, millennial kingdom participation, and eternal rewards. It is not limited to salvation alone but encompasses the full scope of divine blessing throughout time.
 
-2. **Age-Specific Blotting:** A believer may be written in the book today (salvation secured), potentially blotted out in the next age (excluded from millennial kingdom privileges due to unfaithfulness), yet restored for eternity. This allows for dispensational consequences without threatening eternal security.
+- **Age-Specific Blotting:** A believer may be written in the book today (salvation secured), potentially blotted out in the next age (excluded from millennial kingdom privileges due to unfaithfulness), yet restored for eternity. This allows for dispensational consequences without threatening eternal security.
 
-3. **Repentance and Restoration Logic:** If one accepts that names can be blotted out (as the text implies), then logically, restoration through repentance must also be possible. The very concept of blotting presupposes the possibility of being written back in, maintaining hope for the unfaithful believer.
+- **Repentance and Restoration Logic:** If one accepts that names can be blotted out (as the text implies), then logically, restoration through repentance must also be possible. The very concept of blotting presupposes the possibility of being written back in, maintaining hope for the unfaithful believer.
 
-4. **Promise to Faithful Overcomers:** The promise to overcomers in Sardis—those who did not "defile their garments" (Rev. 3:4)—is that they will never experience such blotting. Their faithfulness ensures continuous blessing across all ages, from present salvation through millennial kingdom participation to eternal reward.
+- **Promise to Faithful Overcomers:** The promise to overcomers in Sardis—those who did not "defile their garments" (Rev. 3:4)—is that they will never experience such blotting. Their faithfulness ensures continuous blessing across all ages, from present salvation through millennial kingdom participation to eternal reward.
 
-5. **Dispensational Consistency:** This interpretation maintains both the security of salvation (eternal life cannot be lost) and the reality of kingdom consequences (privileges can be forfeited but restored). It provides hope for restoration while maintaining the seriousness of present faithfulness.
+- **Dispensational Consistency:** This interpretation maintains both the security of salvation (eternal life cannot be lost) and the reality of kingdom consequences (privileges can be forfeited but restored). It provides hope for restoration while maintaining the seriousness of present faithfulness.
 
 
 
@@ -658,7 +659,7 @@ This framework allows both sets of passages to be taken seriously without compro
 
 The pastoral implications are profound: believers can rest securely in their salvation while taking seriously their calling to maturity and fruitfulness. Fear is replaced with motivation, anxiety with assurance, and spiritual self-surveillance with confident growth toward Christ-likeness.
 
-## Related Works
+<!-- ## Related Works
 - Salvation by works or reward by works?
 - A defense on dispensional reward and discipline
-- Assurance: Am I saved?
+- Assurance: Am I saved? -->

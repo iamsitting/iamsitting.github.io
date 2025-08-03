@@ -19,6 +19,9 @@ export default function Navbar() {
                         <Link to="/blog" className="text-[#E8F5E8] hover:text-[#A3C9A3] transition-colors">
                             Blog
                         </Link>
+                        {/* <Link to="/papers" className="text-[#E8F5E8] hover:text-[#A3C9A3] transition-colors">
+                            Papers
+                        </Link> */}
                         <Link to="/about" className="text-[#E8F5E8] hover:text-[#A3C9A3] transition-colors">
                             About
                         </Link>

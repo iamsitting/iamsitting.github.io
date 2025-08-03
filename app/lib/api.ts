@@ -159,6 +159,18 @@ export const getAllCategories = async (): Promise<Category[]> => {
     }
 };
 
+// Fetch all papers
+export const getAllPapers = async (): Promise<Post[]> => {
+    try {
+        const papers = await getLatestPapersFile();
+        // Sort by publishedAt, newest first
+        return papers.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+    } catch (error) {
+        console.error("Error fetching papers:", error);
+        throw new Error("Server error");
+    }
+};
+
 // Fetch a paper by slug
 export const getPaperBySlug = async (slug: string): Promise<Post | null> => {
     try {

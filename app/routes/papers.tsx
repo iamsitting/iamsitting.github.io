@@ -3,14 +3,6 @@ import { Link } from "react-router-dom";
 import { getAllPapers } from "../lib/api";
 import Loader from "../components/Loader";
 import type { Post } from "~/lib/api";
-import type { Route } from "./+types/papers";
-
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "Papers | iamsitting" },
-    { name: "description", content: "Read papers and research on iamsitting" },
-  ];
-}
 
 export default function Papers() {
   const [papers, setPapers] = useState<Post[]>([]);

@@ -15,7 +15,7 @@ export default function About() {
         <h1 className="text-4xl font-bold text-[#E8F5E8] mb-6">About Me</h1>
         <div className="card">
           <p className="text-[#A3C9A3] text-lg leading-relaxed space-y-4">
-            I'm a full stack developer with experience ranging from embedded systems to CMS platforms. I currently focus on .NET development, DevOps tooling, and hypermedia-driven APIs.
+          I'm a full stack developer with experience ranging from embedded systems to CMS platforms. I currently focus on .NET development, DevOps tooling, and hypermedia-driven APIs.
           </p>
 
           <p className="text-[#A3C9A3] text-lg leading-relaxed space-y-4">
@@ -176,6 +176,8 @@ export default function About() {
         <h2 className="text-3xl font-bold text-[#E8F5E8] mb-6">Learning</h2>
         <div className="card">
           <ul className="text-[#A3C9A3] space-y-2">
+            <li>Oct. 2025 - The Four Agreements</li>
+            <li>Aug. 2025 - The New One Minute Manager</li>
             <li>May 2025 - Extreme Ownership</li>
             <li>Apr. 2025 - Machine Learning in Python</li>
             <li>Jan. 2025 - 7 Habits of Highly Effective People</li>

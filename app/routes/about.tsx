@@ -15,11 +15,11 @@ export default function About() {
         <h1 className="text-4xl font-bold text-[#E8F5E8] mb-6">About Me</h1>
         <div className="card">
           <p className="text-[#A3C9A3] text-lg leading-relaxed space-y-4">
-          I'm a full stack developer with experience ranging from embedded systems to CMS platforms. I currently focus on .NET development, DevOps tooling, and hypermedia-driven APIs.
+          I'm a software engineer with experience ranging from embedded systems to CMS platforms. I currently focus on Node.js development and DevOps/DevEx tooling. I enjoy working with hypermedia driven APIs.
           </p>
 
           <p className="text-[#A3C9A3] text-lg leading-relaxed space-y-4">
-            At BuildWitt, I build tools that support the construction and infrastructure industries—sectors vital to society but underserved by modern software.
+            At BuildWitt, I support our flagship production—a custom LMS for the construction industry.
           </p>
 
           <p className="text-[#A3C9A3] text-lg leading-relaxed space-y-4">
@@ -47,7 +47,7 @@ export default function About() {
             <h3 className="text-xl font-semibold text-[#E8F5E8]">Senior Software Engineer | BuildWitt</h3>
             <p className="text-[#A3C9A3] mb-2">July 2024 to Present</p>
             <ul className="text-[#A3C9A3] list-disc pl-6 space-y-1">
-              <li>Designing & developing software in .NET and React</li>
+              <li>Designing & developing scalable software in .NET/Node.js and React</li>
             </ul>
           </div>
 
@@ -58,9 +58,9 @@ export default function About() {
             <ul className="text-[#A3C9A3] list-disc pl-6 space-y-1">
               <li>Spearheaded adoption of DevOps: CI/CD, git versioning, branching strategy, and release note generation</li>
               <li>Evaluated and improved SDLC for agile development</li>
-              <li>Oversee a team of student workers and mentor junior developers</li>
-              <li>Developing KPIs, general system, application, and SDLC design guidelines</li>
-              <li>Daily in C# and javascript. Occasionally in Python, Powershell, and SQL</li>
+              <li>Oversaw a team of student workers and mentored junior developers</li>
+              <li>Developed KPIs, general system, application, and SDLC design guidelines</li>
+              <li>Daily in C# and JavaScript. Occasionally in Python, Powershell, and SQL</li>
             </ul>
           </div>
 
@@ -69,10 +69,10 @@ export default function About() {
             <h3 className="text-xl font-semibold text-[#E8F5E8]">Software Developer | theTestimony.us</h3>
             <p className="text-[#A3C9A3] mb-2">Feb. 2019 to Present</p>
             <ul className="text-[#A3C9A3] list-disc pl-6 space-y-1">
-              <li>Led full-stack design of a web application for conference registration, application tracking, and invoicing</li>
+              <li>Lead full-stack design of a web application for conference registration, application tracking, and invoicing</li>
               <li>Oversee backlog and feature planning</li>
               <li>Refactored from Vue2 to Vue3. Refactored from native components to Syncfusion.</li>
-              <li>Refactoring from SPA to HTMX and jQuery datatables and from layered architecture to vertical slice architecture.</li>
+              <li>Refactored from SPA to HTMX and jQuery datatables and from layered architecture to vertical slice architecture.</li>
               <li>Daily in C#, VueJs/Typescript, UIkit, HTMX, Azure, Razor Pages, EF Core</li>
             </ul>
           </div>
@@ -136,8 +136,8 @@ export default function About() {
             <h3 className="text-xl font-semibold text-[#E8F5E8] mb-3">Extensive Experience</h3>
             <ul className="text-[#A3C9A3] space-y-2">
               <li>.NET (C#)</li>
+              <li>Node (js)</li>
               <li>Django (Python)</li>
-              <li>Vue 3</li>
               <li>HTMX</li>
               <li>Client-side javascript and typescript</li>
             </ul>
@@ -145,8 +145,8 @@ export default function About() {
           <div className="card">
             <h3 className="text-xl font-semibold text-[#E8F5E8] mb-3">Limited Experience</h3>
             <ul className="text-[#A3C9A3] space-y-2">
-              <li>Node (js)</li>
-              <li>React, Angular</li>
+              <li>React</li>
+              <li>Vue 3, Angular</li>
               <li>CSS/LESS/SASS</li>
               <li>Boostrap, UIKit</li>
               <li>Go</li>

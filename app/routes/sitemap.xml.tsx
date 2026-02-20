@@ -1,7 +1,7 @@
 import { generateSitemap } from '../lib/sitemap';
 
 export async function loader() {
-  const baseUrl = 'https://devoted.dev';
+  const baseUrl = 'https://iamsitting.com';
   const sitemap = await generateSitemap(baseUrl);
   
   return new Response(sitemap, {

@@ -19,7 +19,7 @@ export default function About() {
           </p>
 
           <p className="text-[#A3C9A3] text-lg leading-relaxed space-y-4">
-            At BuildWitt, I support our flagship production—a custom LMS for the construction industry.
+            At BuildWitt, I support our flagship product, a custom LMS for the construction industry.
           </p>
 
           <p className="text-[#A3C9A3] text-lg leading-relaxed space-y-4">
@@ -44,9 +44,11 @@ export default function About() {
         <div className="space-y-8">
           {/* BuildWitt */}
           <div className="card">
-            <h3 className="text-xl font-semibold text-[#E8F5E8]">Senior Software Engineer | BuildWitt</h3>
+            <h3 className="text-xl font-semibold text-[#E8F5E8]">Staff Software Engineer | BuildWitt</h3>
             <p className="text-[#A3C9A3] mb-2">July 2024 to Present</p>
             <ul className="text-[#A3C9A3] list-disc pl-6 space-y-1">
+              <li>Adopting AI effectively and scaling its use across teams to enhance velocity and quality</li>
+              <li>Shaping best practices and influencing <em>how</em> teams build</li>
               <li>Designing & developing scalable software in .NET/Node.js and React</li>
             </ul>
           </div>

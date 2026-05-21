@@ -1,7 +1,7 @@
 ---
 title: "What Rewriting with AI Taught Me"
 description: "A reflection on rewriting a legacy system with AI and the tradeoffs that became clear along the way"
-date: "2026-03-14"
+date: "2026-05-03"
 author: "Carlos Salamanca"
 category: ["Software Engineering"]
 slug: "what-rewriting-with-ai-taught-me"

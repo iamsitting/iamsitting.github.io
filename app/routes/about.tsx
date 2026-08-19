@@ -3,7 +3,7 @@ import type { Route } from "./+types/about";
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "About" },
-    { name: "description", content: "Learn more about my background, expertise, and experience in software development." },
+    { name: "description", content: "Software engineer focused on scalable systems, developer experience, and the changing role of AI in engineering." },
   ];
 }
 
@@ -15,24 +15,28 @@ export default function About() {
         <h1 className="text-4xl font-bold text-[#E8F5E8] mb-6">About Me</h1>
         <div className="card">
           <p className="text-[#A3C9A3] text-lg leading-relaxed space-y-4">
-          I'm a software engineer with experience ranging from embedded systems to CMS platforms. I currently focus on Node.js development and DevOps/DevEx tooling. I enjoy working with hypermedia driven APIs.
+            I'm a software engineer interested in what makes software hold up over time—not only under more traffic, but across growing teams, changing requirements, and years of accumulated decisions.
           </p>
 
           <p className="text-[#A3C9A3] text-lg leading-relaxed space-y-4">
-            At BuildWitt, I support our flagship product, a custom LMS for the construction industry.
+            My path into software started close to the hardware, writing C for embedded gas-detection systems. Since then, I've worked across university platforms, CMS products, and web applications. Today I'm a Staff Software Engineer at BuildWitt, where I help build and support a custom learning platform for the construction industry.
           </p>
 
           <p className="text-[#A3C9A3] text-lg leading-relaxed space-y-4">
-            I'm pursuing a master's in Information Systems, with research focused on the impact of AI in software engineering.
+            I work primarily in Node.js, .NET, and React, but the technology is rarely the most interesting part. I'm drawn to the boundaries around it: architecture, developer experience, team design, and the small decisions that determine whether a system becomes easier or harder to change. I also have a soft spot for hypermedia-driven APIs.
+          </p>
+
+          <p className="text-[#A3C9A3] text-lg leading-relaxed space-y-4">
+            I'm currently pursuing a master's in Information Systems and researching how AI is changing software engineering. I'm especially interested in what happens after the demos: how AI affects architecture, technical debt, organizational memory, and the way teams actually build.
           </p>
 
           <div className="text-[#A3C9A3] text-lg leading-relaxed space-y-4">
             <p className="font-semibold">Focus Areas:</p>
             <p>
-              Sociotechnical systems · Scalable architecture · Stream-aligned teams · DevOps culture · API-first thinking · Team-product fit · Long-term system health.
+              Sociotechnical systems · Scalable architecture · Stream-aligned teams · Developer experience · API and hypermedia design · AI-assisted engineering · Long-term system health.
             </p>
             <p>
-              For a full employment history and picture check out my <a href="https://www.linkedin.com/in/cdsalamanca" className="text-[#4CAF50] hover:text-[#66BB6A] underline" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+              For the conventional résumé version—and a face to go with the writing—find me on <a href="https://www.linkedin.com/in/cdsalamanca" className="text-[#4CAF50] hover:text-[#66BB6A] underline" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
             </p>
           </div>
         </div>
@@ -193,4 +197,4 @@ export default function About() {
       </section>
     </div>
   );
-} 
+}

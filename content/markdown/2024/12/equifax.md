@@ -3,33 +3,25 @@ title: "What I learned from Equifax"
 description: ""
 date: "2024-12-01"
 author: "Carlos Salamanca"
-category: "Leadership"
+category: ["Leadership"]
 ---
 
 # What I learned from Equifax
 
-The Equifax data breach of 2017 was more than just a cybersecurity failure. It was an organizational one. Sensitive information from 147 million people was exposed, but what compounded the damage was how the company handled it. The breach started in May, but it took months for leadership, including the CEO, to even learn of the problem. By the time the public was informed, trust had been obliterated. This happened not just because of the breach itself, but also because of the delayed and opaque response.
+I first looked at the 2017 Equifax breach as a security incident: a known vulnerability went unpatched and sensitive information belonging to 147 million people was exposed. What stayed with me, though, was the reporting chain. The intrusion began in May, yet senior leadership did not learn about it until much later. The technical failure was serious; the delay in recognizing and communicating it made the damage worse.
 
-Here’s the hard truth: organizational failures of this magnitude rarely start with technical flaws. They stem from cultural gaps, such as gaps in transparency, accountability, and ownership.
+That changed the question for me. Instead of asking only how a patch was missed, I started asking how bad news traveled inside the company. A vulnerability can begin with one team, but the response depends on whether people know who owns the risk and feel responsible for escalating it.
 
-So what lessons can we learn from Equifax?
+## Bad news needs a short path upward
 
-## 1. Transparency Must Start at the Top
+Transparency with customers matters, but it begins internally. Engineers and managers need a clear route for raising a concern, especially when the scope is still uncertain. If reporting a possible incident feels politically risky, teams will wait for proof. During a breach, that delay is costly.
 
-Transparency isn’t just about being upfront with customers. It’s about building a culture where bad news travels fast and effectively within the organization. Leaders must create an environment where teams feel empowered, and obligated, to escalate issues without fear of blame.
+## Security ownership crosses team boundaries
 
-## 2. Ownership is Organizational
+Saying “security is everyone's responsibility” can become a way of making it nobody's responsibility. Shared ownership still needs named owners: someone who decides, someone who coordinates the response, and someone who keeps leadership informed. Those responsibilities should be understood before an incident occurs.
 
-Security, like success, is everyone’s responsibility. A culture of ownership starts at the top and filters down. Leaders need to set the example, treating risks and vulnerabilities as shared challenges, not isolated team problems.
+## Process has to support the culture
 
-## 3. Build Systems that Support Culture
+Good intentions are not an incident-response plan. Escalation paths, communication channels, and decision authority need to be explicit and practiced. Leadership cannot act on information it never receives, and a team should not have to invent its reporting process in the middle of an emergency.
 
-Even the best intentions mean little without processes to back them up. Organizations must invest in tools and workflows that enable rapid escalation, clear communication, and swift decision-making. Leadership cannot act on what they don’t know.
-
-Think about this: If a breach happened today, how long would it take for your organization’s leadership to learn about it? Would your teams have the trust and infrastructure to respond decisively? Would your customers hear the truth before rumors spread?
-
-The Equifax breach reminds us that technical safeguards are only part of the equation. The bigger question is whether your organization has the cultural and structural readiness to face challenges head-on, with transparency and ownership leading the charge.
-
-When challenges arise, does your organization’s culture enable a quick, honest response? Or does it risk letting small issues snowball into crises?
-
-[Back to Home](/) 
+The practical test I took from Equifax is simple: if an engineer found evidence of a breach this afternoon, who would know by the end of the day? A precise answer says as much about an organization's security posture as its tooling does.

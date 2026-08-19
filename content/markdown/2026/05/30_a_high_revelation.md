@@ -7,6 +7,7 @@ category: ["Bible"]
 slug: "a-high-revelation-for-a-high-revival"
 ---
 
+# A High Revelation for a High Revival
 
 The church has seen many real revivals through history, and every one of them matters. People were saved, renewed, and stirred to seek the Lord again. But even with all that, it still feels like God's purpose has not yet been fully reached.
 

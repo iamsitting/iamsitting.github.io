@@ -1,6 +1,6 @@
 ---
 title: "Correlating Hangfire Background Jobs with HTTP Requests Using Datadog and .NET"
-description: "Let's look at how to correlate hangfire jobs with http requests using datadog"
+description: "Correlating Hangfire background jobs with their originating HTTP requests in Datadog"
 date: "2025-03-04"
 author: "Carlos Salamanca"
 category: ["Software Engineering"]
@@ -9,17 +9,15 @@ slug: "correlating-hangfire-jobs-http-requests-datadog"
 
 # Correlating Hangfire Background Jobs with HTTP Requests Using Datadog and .NET
 
-Distributed tracing can feel like magic — until it doesn't work.
-
-Recently, while integrating observability into a .NET web app using **Datadog**, I hit a wall. I had traces from HTTP requests. I had logs. I had background jobs running through **Hangfire**. But there was one crucial gap:
+While adding observability to a .NET web application, I found that Datadog could show the incoming HTTP request and the Hangfire job it queued, but only as unrelated traces. The data existed; the connection between the two did not.
 
 > **Traces from my background jobs weren't correlated with the original HTTP requests.**
 
-Here's how I fixed it, and more importantly — **what I learned about tracing and observability along the way**.
+The fix was to carry the active trace context into Hangfire's job parameters and restore it when the job began.
 
 ---
 
-## 🤯 The Problem: Disconnected Traces
+## The problem: disconnected traces
 
 In a typical setup:
 
@@ -31,13 +29,13 @@ If you're using **Datadog APM**, the default behavior is:
 
 - The HTTP request gets a trace.
 - The background job gets a *separate trace*.
-- You, the human, get lost trying to connect the dots.
+- An engineer investigating the request has to connect them manually.
 
-That's because **traces don't magically carry over**. Unless you explicitly pass trace context, each job runs in its own isolated observability bubble.
+The HTTP execution context ends before the queued work begins. Unless the trace context crosses that boundary explicitly, the job starts a new trace.
 
 ---
 
-## 🧠 A Quick Primer on Traces, Spans, and Context
+## Traces, spans, and context
 
 If you're new to distributed tracing, here's what you need to know:
 
@@ -56,7 +54,7 @@ To connect your background job to the original HTTP request, you need to:
 
 ---
 
-## 🛠 The Solution in .NET with Hangfire and Datadog
+## Passing the context through Hangfire
 
 ### Step 1: Capture the Trace Context
 
@@ -140,7 +138,7 @@ GlobalJobFilters.Filters.Add(new DatadogTracingFilter());
 
 ---
 
-## 🧭 What I Learned (That Applies Beyond .NET)
+## What this clarified for me
 
 ### 1. Observability is Not Automatic
 
@@ -160,7 +158,7 @@ Setting `dd.trace_id` as a tag is helpful for searching, but it's not enough to 
 
 ---
 
-## 📦 Bonus: Why Not OpenTelemetry?
+## Why not OpenTelemetry?
 
 Yes, OpenTelemetry could help standardize this, and Datadog supports OTLP ingestion. But:
 
@@ -172,14 +170,6 @@ That said, the principles here still apply if you're using OTEL — it just chan
 
 ---
 
-## 🔚 Final Thoughts
+## The result
 
-Getting this working took some deep dives — not just into code, but into how distributed tracing *really works*. But now, when I look at a trace in Datadog and see an HTTP request linked cleanly to a background job, it feels worth it.
-
-> Observability isn't just about capturing data — it's about **connecting it**.
-
----
-
-👋 Have questions or want to see how this fits into your stack? Reach out or leave a comment!
-
-[Back to Home](/) 
+After this change, a request and its background work appear as one trace in Datadog. The useful lesson was narrower than “add more observability”: data collected on both sides of an asynchronous boundary is not connected unless the context crosses that boundary too.

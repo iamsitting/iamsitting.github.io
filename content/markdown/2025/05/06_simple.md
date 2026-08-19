@@ -3,9 +3,11 @@ title: "Simple: A Leadership Principle in Software Engineering"
 description: "Some reflections on Extreme Ownership"
 date: "2025-05-06"
 author: "Carlos Salamanca"
-category: "Leadership"
+category: ["Leadership"]
 slug: "simple-leadership-principle-software-engineering"
 ---
+
+# Simple: A Leadership Principle in Software Engineering
 
 I've been on paternity leave recently, and between newborn naps and toddler playtime, I've finally had a little more space to read. I'm working through Extreme Ownership as part of a book club at BuildWitt and one principle in particular has stuck with me: "Simple."
 

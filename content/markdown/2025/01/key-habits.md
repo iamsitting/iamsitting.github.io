@@ -3,38 +3,34 @@ title: "Key Habits of a Leader"
 description: "Some reflections on The 7 Habits of Highly Effective People by Stephen Covey"
 date: "2025-01-31"
 author: "Carlos Salamanca"
-category: "Leadership"
+category: ["Leadership"]
 slug: "key-habits-effective-leader-covey"
 ---
 
 # Some Key Habits of a Leader
 
-I recently finished reading The 7 Habits of Highly Effective People by Stephen Covey, and it was eye-opening! These habits aren't just theories—they're practical principles that have reshaped how I approach both work and life.
+I recently finished *The 7 Habits of Highly Effective People* by Stephen Covey. A few of its ideas gave me useful language for situations I already encounter in product work: competing priorities, difficult conversations, and the need to maintain trust over time.
 
-A few habits that really hit home for me:
+Four ideas stayed with me.
 
 ## Win/Win
 
-Think Win/Win: As someone working with products, I've seen firsthand how prioritizing mutual success builds stronger relationships. When you aim for outcomes that benefit both customers and stakeholders, you create partnerships that last.
+In product work, it is easy to treat a disagreement as something one side has to win. Covey's framing pushed me to look for the interest behind each position. A customer asking for a specific feature and an engineering team resisting it may agree on the underlying problem even when they disagree about the implementation.
 
 ## First Understand, Then Be Understood
 
-Seek First to Understand, Then to Be Understood: This one really changed how I handle conversations—especially tough ones. Listening with empathy has helped me uncover customer needs I might have missed and find clarity in complex team discussions.
+This habit is hardest when I think I already understand the problem. In those moments I tend to prepare an answer while the other person is still talking. Asking one more question before proposing a solution has helped uncover constraints that were missing from the original request.
 
 ## Synergize
 
-Synergize: Collaboration isn't just a buzzword—it's a game changer. Some of the best solutions I've been part of didn't come from me or any one person. They came from combining diverse perspectives across teams. It's amazing what happens when you embrace creativity and trust in others' expertise.
+Some of the best solutions I have worked on did not belong to any one person. Product supplied context, engineering exposed constraints, and customers clarified what actually mattered. Collaboration was useful because the perspectives were different, not because everyone agreed from the start.
 
 ## Sharpen the Saw
 
-Sharpen the Saw: Covey talks about renewal, and this resonated deeply. I've realized how critical it is to invest in personal growth—whether it's through learning, rest, or even stepping back to reflect. Growth isn't a sprint; it's a marathon.
+Covey uses this phrase for renewal. I tend to think of learning and rest as things to fit around the work, but neglecting them eventually affects the work itself. Time spent reading, reflecting, or stepping away is maintenance, not a reward for finishing everything else.
 
 
 ## Trust
-For me, the biggest shift was embracing Covey's concept of the "emotional bank account." Every interaction—whether with customers, peers, or family—is a deposit or a withdrawal. Building trust, showing kindness, and keeping commitments aren't just nice ideas; they're the foundation of meaningful relationships.
+The “emotional bank account” was the most useful metaphor in the book for me. Every kept commitment makes a later difficult conversation easier; every missed commitment makes it harder. That applies with customers and teammates, but also at home.
 
-These habits offer fresh remainders that tech is more than software—it's about people. When we lead with empathy and collaboration, we don't just deliver value; we create impact that lasts.
-
-What habits or principles have shaped how you work and lead?
-
-[Back to Home](/) 
+The common thread is that effectiveness is relational. Good systems and sound decisions matter, but the trust surrounding them determines how well a team can use them.

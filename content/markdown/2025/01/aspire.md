@@ -1,6 +1,6 @@
 ---
 title: "Making Microservices Manageable with .NET Aspire, Git Submodules, and OpenTelemetry"
-description: "Let's look at .NET Aspire as a potential solution to microservices development"
+description: "Using .NET Aspire, Git submodules, and OpenTelemetry to improve local microservice development"
 date: "2025-02-05"
 author: "Carlos Salamanca"
 category: ["Software Engineering"]
@@ -9,15 +9,15 @@ slug: "microservices-manageable-dotnet-aspire"
 
 # Making Microservices Manageable with .NET Aspire, Git Submodules, and OpenTelemetry
 
-Microservices give us flexibility. They also give us a headache.
+Working across several independently deployed services exposed a gap in our development setup. The production architecture gave each service its own lifecycle, but locally we still needed to run and debug the product as a whole.
 
-At their best, microservices enable independent deployment, scalability, and team autonomy. But too often, they introduce local development chaos, debugging nightmares, and operational overhead—especially when we're just trying to deliver cohesive **products**, not architecture for architecture's sake.
+That meant starting services in the right order, keeping ports and environment variables aligned, and tracing a request across repository boundaries. The services were independent; the developer experience was fragmented.
 
-This post explores how we can tame microservices using [.NET Aspire](https://devblogs.microsoft.com/dotnet/introducing-dotnet-aspire/), Git submodules, and local OpenTelemetry tracing. We'll walk through practical strategies to create a **monorepo-like developer experience**—even when you don't have a monorepo.
+I used [.NET Aspire](https://devblogs.microsoft.com/dotnet/introducing-dotnet-aspire/), Git submodules, and local OpenTelemetry tracing to bring those pieces together. The result behaves like a monorepo during development without requiring every service to live in one repository.
 
 ---
 
-## 👎 The Reality of Microservices in Practice
+## The local development problem
 
 While microservices are great for deployment and scalability, they tend to:
 
@@ -30,7 +30,7 @@ These are real tradeoffs—and often overlooked when teams jump on the "microser
 
 ---
 
-## ✅ But We're Building Products
+## Services are deployed; products are used
 
 Despite the architectural breakdown of services, what we're actually delivering is a **product**. That means we care more about how all the pieces fit together than the internals of each individual service.
 
@@ -44,7 +44,7 @@ This is where `.NET Aspire` comes in.
 
 ---
 
-## 🚀 .NET Aspire to the Rescue
+## Composing the product with .NET Aspire
 
 `.NET Aspire` is a new stack from Microsoft designed to make building distributed apps easier. It gives you a structured way to define, compose, and run a multi-service application locally.
 
@@ -55,7 +55,7 @@ Aspire supports things like:
 - Native integration with OpenTelemetry
 - IDE tooling and launch profiles out of the box
 
-Let's look at an example:
+Here is a simplified composition:
 
 ```csharp
 var builder = DistributedApplication.CreateBuilder(args);
@@ -81,7 +81,7 @@ This Aspire `Program.cs` script declares how your product is composed. It specif
 
 ---
 
-## 🔗 Git Submodules: Repo Independence, Dev Cohesion
+## Keeping repositories independent with Git submodules
 
 What if your services live in separate repositories?
 
@@ -107,7 +107,7 @@ git clone --recurse-submodules https://example.com/aspire-app
 
 ---
 
-## 🔍 Distributed Tracing: Don't Debug in the Dark
+## Tracing across service boundaries
 
 Local dev is one thing. But once multiple services are talking to each other, tracing becomes essential. Aspire supports OpenTelemetry (OTel) out of the box.
 
@@ -142,7 +142,7 @@ Now, whether it's a `.NET API` or a `React app`, you can follow a trace from cli
 
 ---
 
-## 🧠 Big Takeaways
+## What this setup changed
 
 1. **You don't need a monorepo to get a monorepo-like experience.**
    - Use `.NET Aspire` + Git submodules to orchestrate services locally.
@@ -158,11 +158,6 @@ Now, whether it's a `.NET API` or a `React app`, you can follow a trace from cli
 
 ---
 
-## 🧪 Final Thoughts
+## Where I landed
 
-Microservices are here to stay—but the way we develop with them has to evolve. `.NET Aspire`, Git submodules, and OpenTelemetry can bridge the gap between independent services and cohesive product delivery.
-
-If you're drowning in `docker-compose.yml` files or juggling 6 terminal windows every time you onboard a new dev, give Aspire a look. You might just enjoy building distributed systems again.
-
-
-[Back to Home](/) 
+This setup did not remove the operational cost of microservices. It addressed a narrower problem: developers could start the product from one place and follow a request across its boundaries. That made the architecture easier to work with without taking repository ownership away from individual teams.

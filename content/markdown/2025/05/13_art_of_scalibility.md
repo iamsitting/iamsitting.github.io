@@ -3,43 +3,26 @@ title: "The Art of Scalability: Clarity and Capacity"
 description: "How understanding ownership and resources can transform team execution"
 date: "2025-05-13"
 author: "Carlos Salamanca"
-categories: ["Leadership"]
+category: ["Leadership"]
 slug: "art-of-scalability-clarity-capacity"
 ---
 
 # The Art of Scalability: Clarity and Capacity
 
-Ever been on a team where no one's quite sure who owns what? Where two people do the same thing—or worse, no one does it?
+Last week I started reading *The Art of Scalability* by Martin Abbott and Michael Fisher. Chapter 2 gave me a useful way to think about a problem I have seen on small teams and side projects: work can stall even when everyone involved is capable and motivated.
 
-Yeah, me too.
-
-Last week I started reading *The Art of Scalability* by Abbott and Fisher, and Chapter 2 put words to that mess.
-
-It's not always a people problem—it's often a structure problem.
-Specifically: a lack of clarity and capacity.
+The authors separate the problem into two parts: clarity and capacity. That distinction matters because adding another person will not resolve unclear ownership, and a perfect responsibility chart will not help a team that lacks the time or skills to execute.
 
 ## The Two Key Ingredients
 
 **Clarity** = knowing what you're responsible for (and what you're not)  
 **Capacity** = having enough people in the right places to deliver
 
-Without those two things, teams can't execute. They just improvise.
-
-Sometimes it works. Often, it doesn't.
+Without both, teams spend energy negotiating the work while trying to perform it.
 
 ## The Impact
 
-That hit me. Because I've seen the fallout of missing clarity and capacity—not in big orgs, but in small teams, even side projects.
-
-Things slip. Stress creeps in. No one's slacking—it's just hard to move when the ground's uncertain.
-
-## The Transformation
-
-When teams get clarity and capacity right, something magical happens.
-
-Things move. People step up. Execution sharpens.
-
-You can feel the difference—and it makes you want to build even more.
+I have seen this show up in ordinary ways: two engineers begin solving the same problem, a decision waits because everyone assumes someone else owns it, or a task quietly moves between people because nobody has enough time to finish it. From a distance these can look like performance problems. Up close, they are often design problems in the team itself.
 
 ## Understanding Clarity
 
@@ -52,22 +35,23 @@ Clarity isn't just about job titles or org charts. It's about:
 
 I've seen teams where everyone's trying to be helpful, but no one's quite sure who should make the call. The result? Decision paralysis or, worse, conflicting decisions.
 
-### A Common Scenario
+### A common scenario
 
-Picture this: Three engineers are working on the same feature, each with their own approach. Sounds collaborative, right? But it leads to:
+Suppose three engineers begin the same feature with different assumptions about who will make the final technical decision. The likely result is:
 
 - Duplicate work
 - Inconsistent implementations
 - Wasted time in meetings to align
 - Frustration when changes conflict
 
-The fix isn't complex. The team:
-1. Assigns a clear owner
-2. Defines the boundaries
-3. Sets up regular sync points
-4. Establishes clear success criteria
+The team can improve the situation by:
 
-Suddenly, the same team is moving faster, with less stress.
+1. Assigning a clear owner
+2. Defining the boundaries
+3. Setting up regular sync points
+4. Establishing clear success criteria
+
+None of those steps adds engineering capacity. They make the available capacity easier to use.
 
 ## Building Capacity
 
@@ -78,9 +62,9 @@ Capacity isn't just about headcount. It's about:
 3. **Tools**: Are we giving teams what they need?
 4. **Support**: Is there help when things get tough?
 
-### The Capacity Trap
+### The capacity trap
 
-Many leaders fall into this trap: thinking more people = more capacity. But that's not always true. Sometimes it's about:
+Headcount and capacity are related, but they are not identical. Before adding people, it is worth looking for other constraints:
 
 - Removing bottlenecks
 - Automating repetitive tasks
@@ -89,7 +73,7 @@ Many leaders fall into this trap: thinking more people = more capacity. But that
 
 ## Putting It Together
 
-The magic happens when clarity and capacity work together:
+Clarity and capacity reinforce each other:
 
 1. **Clear Ownership + Right Skills**: People know what to do and can do it well
 2. **Defined Boundaries + Proper Tools**: Teams can move fast without stepping on toes
@@ -119,22 +103,4 @@ If you're feeling the pain of unclear ownership or stretched capacity, try these
    - Clear escalation paths
    - Open communication channels
 
-## The Payoff
-
-When you get clarity and capacity right, you'll see:
-
-- Faster decision-making
-- Higher team morale
-- Better quality output
-- More innovation
-- Sustainable growth
-
-It's not about creating bureaucracy. It's about creating the space and structure for teams to do their best work.
-
-## Moving Forward
-
-As teams continue to scale, keeping these principles front and center becomes crucial. It's not always easy—sometimes it means having tough conversations about ownership or making hard decisions about resources.
-
-But when you see a team that's clear on their mission and has the capacity to execute, it's worth every bit of effort.
-
-Because that's when the real magic happens.
+The point is not to create more bureaucracy. It is to make two questions answerable: Who owns this, and do they have what they need to finish it? When execution slows down, those are more useful starting points than assuming the team needs to work harder.

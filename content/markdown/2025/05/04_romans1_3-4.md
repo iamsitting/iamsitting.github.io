@@ -62,5 +62,3 @@ We are being conformed to the One who was designated Son of God in power.
 - Now He is the **Firstborn among many brothers** (Rom. 8:29)—and we are being **conformed to His image**.
 - The Christian life is not just about doing things for God; it’s about being **transformed into the image of the resurrected, designated Son of God**.
 - This gives meaning to everything we do as believers.
-
-[Back to Home](/) 

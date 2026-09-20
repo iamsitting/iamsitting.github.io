@@ -12,7 +12,7 @@ export default function Home() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { posts: fetchedPosts } = await getAllPosts();
+        const { posts: fetchedPosts } = await getAllPosts(1, "", undefined, ["Bible"]);
         setPosts(fetchedPosts);
         setError(null);
       } catch (err) {

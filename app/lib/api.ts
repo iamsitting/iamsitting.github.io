@@ -66,10 +66,20 @@ async function getLatestPapersFile(): Promise<Post[]> {
 export const getAllPosts = async (
     page: number = 1,
     searchQuery: string = "",
-    categoryId?: number
+    categoryId?: number,
+    excludedCategories: string[] = []
 ): Promise<{ posts: Post[]; pagination: PaginatedResponse }> => {
     try {
         let posts = await getLatestPostsFile();
+
+        // Exclude categories before pagination so older eligible posts can fill the page.
+        if (excludedCategories.length > 0) {
+            const excludedNames = new Set(excludedCategories.map(name => name.toLowerCase()));
+            posts = posts.filter(post => !post.categories.some(category => {
+                const names = Array.isArray(category.name) ? category.name : [category.name];
+                return names.some(name => excludedNames.has(name.toLowerCase()));
+            }));
+        }
 
         // Apply search filter
         if (searchQuery) {
